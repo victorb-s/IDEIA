@@ -11,4 +11,11 @@ export const GlobalStyle = CreateGlobalStyle`
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
+
+    :root{
+        --cor-01: #DA251C;
+        --cor-02: #034C8C;
+        --cor-03: #038C33;
+        --cor-04: #F4AD04;
+    }
 `
