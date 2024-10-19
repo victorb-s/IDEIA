@@ -10,6 +10,8 @@ export const GlobalStyle = CreateGlobalStyle`
         scroll-behavior: smooth;
         word-wrap: break-word;
         overflow-wrap: break-word;
+
+        font-family: 'Roboto', sans-serif;
     }
 
     :root{
