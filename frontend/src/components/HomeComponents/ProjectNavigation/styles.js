@@ -11,16 +11,12 @@ export const ProjNavContainer = styled.nav`
     border-bottom: solid 1px rgba(0,0,0,0.1);
 `
 
-export const ControlsContainer = styled.div`
-    display:flex;
-    & button{
-        border: none;
-        font-size: 24px;
-    }
-`
-
 export const Input = styled.div`
-    border: none;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: rgba(0,0,0,0.7);
 
     & input{
         border: none;
@@ -30,4 +26,15 @@ export const Input = styled.div`
         outline: none;
     }
     
+`
+
+export const ControlsContainer = styled.div`
+    display:flex;
+    gap: 10px;
+
+    & button{
+        all: unset;
+        font-size: 18px;
+        cursor: pointer;
+    }
 `

@@ -1,21 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDownAZ, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowDownAZ,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 
-import styles from "./ProjectNavigation.module.css";
 import { ProjNavContainer, ControlsContainer, Input } from "./styles";
 const ProjectNavigation = () => {
   return (
     <ProjNavContainer>
       <Input>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
-        <input type="text" placeholder="Pesquise pelo nome..." />
+        <input
+          type="text"
+          placeholder="Pesquise pelo nome..." /*onChange={handleChange}*/
+        />
       </Input>
       <ControlsContainer>
-        <button>
+        <button /*onClick={handleSortAlph}*/>
           <FontAwesomeIcon icon={faArrowDownAZ} />
         </button>
-        <button>
+        <button /*onClick={handleSortDate}*/>
           <FontAwesomeIcon icon={faCalendar} />
         </button>
       </ControlsContainer>

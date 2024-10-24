@@ -7,7 +7,7 @@ const Home = () => {
   return (<>
     <Header/>
     <SectionContainer >
-        <SectionHeading text="Meus Projetos"/>
+        <SectionHeading text="Projetos Recentes"/>
         <ProjectNavigation/>
     </SectionContainer>
   </>)

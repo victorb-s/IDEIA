@@ -1,10 +1,10 @@
-import { Heading } from './styles'
-const SectionHeading = ({ SectionTitle }) => {
+import { Heading, Line, HeadingContainer } from './styles'
+const SectionHeading = ({ text }) => {
     return (
-    <>
-        <Heading>{SectionTitle}</Heading>
-        <span />
-    </>
+    <HeadingContainer>
+        <Heading>{text}</Heading>
+        <Line />
+    </HeadingContainer>
     )
 }
 
