@@ -1,8 +1,15 @@
 import Header from "../../components/Header"
+import SectionHeading from "../../components/HomeComponents/SectionHeading"
+import ProjectNavigation from "../../components/HomeComponents/ProjectNavigation"
+import {SectionContainer} from './styles'
 
 const Home = () => {
   return (<>
     <Header/>
+    <SectionContainer >
+        <SectionHeading text="Meus Projetos"/>
+        <ProjectNavigation/>
+    </SectionContainer>
   </>)
 }
 
