@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 
 export const HeaderContainer = styled.header`
     width: 100%;
@@ -11,6 +12,8 @@ export const HeaderContainer = styled.header`
 
     padding: 0 5vw;
     position: relative;
+    background: #fff;
+    z-index: 99;
 
     &::after{
         position: absolute;
@@ -29,4 +32,18 @@ export const NavContainer = styled.ul`
     gap: 2.5rem;
 
     list-style: none;
+`
+
+export const NavLink = styled(Link)`
+    text-decoration: none;
+    color: #636363;
+    font-size: 15px;
+    
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+        color: #030303;
+        transform: scale(1.05);
+    }
 `
