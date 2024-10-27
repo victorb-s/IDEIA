@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { TopicosConteiner, Linha, Titulo, Topicos, TableHeader, TableRow, TableCell } from "./styles";
+import { TopicosConteiner, Titulo, Topicos, TableHeader, TableRow, TableCell } from "./styles";
+import { FaEdit } from "react-icons/fa";
 
 const TrendingTopics = () => {
     const [topics, setTopics] = useState([]);
@@ -13,9 +14,9 @@ const TrendingTopics = () => {
 
     return (
         <TopicosConteiner>
-            <Linha />
             <Titulo>
-                Em alta
+                <h1>Em alta</h1>
+                <div className="linha"></div>
             </Titulo>
             <Topicos>
                 <thead>
@@ -23,6 +24,7 @@ const TrendingTopics = () => {
                         <TableHeader>Tendências</TableHeader>
                         <TableHeader>Volume de pesquisa</TableHeader>
                         <TableHeader>Iniciado</TableHeader>
+                        <TableHeader>Ações</TableHeader>
                     </TableRow>
                 </thead>
                 <tbody>
@@ -31,6 +33,9 @@ const TrendingTopics = () => {
                             <TableCell>{topic.name}</TableCell>
                             <TableCell>{topic.volume}</TableCell>
                             <TableCell>{topic.started}</TableCell>
+                            <TableCell>
+                                <FaEdit style={{ cursor: "pointer", color: "#034C8C" }} />
+                            </TableCell>
                         </TableRow>
                     ))}
                 </tbody>
