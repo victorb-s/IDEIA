@@ -24,7 +24,7 @@ const TrendingTopics = () => {
                         <TableHeader>Tendências</TableHeader>
                         <TableHeader>Volume de pesquisa</TableHeader>
                         <TableHeader>Iniciado</TableHeader>
-                        <TableHeader>Ações</TableHeader>
+                        <TableHeader></TableHeader>
                     </TableRow>
                 </thead>
                 <tbody>
