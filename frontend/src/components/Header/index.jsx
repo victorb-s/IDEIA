@@ -1,5 +1,4 @@
 import { HeaderContainer, NavContainer, NavLink } from "./styles"
-
 import HeaderLogo from '../../assets/logoHeaderSjcc.svg'
 
 const Header = () => {
