@@ -1,20 +1,23 @@
 import styled from "styled-components";
-import JCrainbow from "../../assets/JC rainbow.svg";
-import ArrowUp from "../../assets/arrow-up.svg";
+import JCrainbow from "../../../assets/JC rainbow.svg";
+import ArrowUp from "../../../assets/arrow-up.svg";
 
 export const GeneralContainer = styled.div`
     display: flex;
-    background-image: url(${JCrainbow});
-    padding-top: 70px;
-    background-repeat: no-repeat;
     justify-content: end;
-    background-position-y: 20%;
+    
+    height: 60vh;
+    padding-top: 10vh;
     padding-bottom: 138px;
+
+    background-image: url(${JCrainbow});
+    background-repeat: no-repeat;
+    background-position-y: 10%;
 `;
 
 export const CategoryForms = styled.form`
     display: flex;
-    width: 570px;
+    width: 40vw;
     text-align: end;
     gap: 16px;
     flex-direction: column;
@@ -22,11 +25,12 @@ export const CategoryForms = styled.form`
     align-items: end;
 
     h1 {
-        font-size: 46px;
+        font-size: 64px;
         color: #da251c;
     }
     label {
-        font-size: 15px;
+        font-size: 18px;
+        font-weight: 300;
     }
     .textInput {
         width: 256px;

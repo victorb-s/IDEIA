@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TopicosConteiner = styled.div`
-    width: 90%;
+    width: 88%;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
