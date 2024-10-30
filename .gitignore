@@ -1,3 +1,5 @@
+/backend/node_modules
+/backend/package-lock.json
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
