@@ -1,6 +1,6 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const genAI = new GoogleGenerativeAI("AIzaSyAbrlkFcDoGvnqKx3c7e7Dn-nDO2RvSxLo");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const generationConfig = {
   temperature: 1,
