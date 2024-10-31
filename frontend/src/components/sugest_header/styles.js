@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "@fontsource/roboto";
 
 export const ContainerHeader = styled.header`
   display: flex;

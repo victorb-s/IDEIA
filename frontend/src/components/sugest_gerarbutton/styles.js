@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "@fontsource/roboto";
 
 export const Button = styled.button`
   background-color: #034C8C;
