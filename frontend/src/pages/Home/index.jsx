@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 
 import SectionInicio from "../../components/HomeComponents/SectionInicio";
 import TrendingTopics from "../../components/HomeComponents/TrendingTopics";
-import { HomeCategorias } from "../../components/HomeComponents/HomeCategorias";
+import { HomeInfos } from "../../components/HomeComponents/HomeSecInfos";
 
 import { SectionContainer } from "./styles";
 import SectionHeading from "../../components/HomeComponents/SectionHeading";
@@ -16,7 +16,7 @@ const Home = () => {
       <Header />
       <SectionInicio />
       <TrendingTopics />
-      <HomeCategorias />
+      <HomeInfos />
       <SectionContainer>
         <SectionHeading text="Projetos Recentes" />
         <ProjectNavigation />

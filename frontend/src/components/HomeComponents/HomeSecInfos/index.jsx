@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Styled from "./styles";
 
-export const HomeCategorias = () => {
+export const HomeInfos = () => {
   const [categoria, setCategoria] = useState("");
 
   const handleSubmit = (e) => {
