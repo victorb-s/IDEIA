@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TopicosConteiner, Titulo, Topicos, TableHeader, TableRow, TableCell } from "./styles";
-import { FaEdit } from "react-icons/fa";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const TrendingTopics = () => {
     const [topics, setTopics] = useState([]);
@@ -34,7 +35,7 @@ const TrendingTopics = () => {
                             <TableCell>{topic.volume}</TableCell>
                             <TableCell>{topic.started}</TableCell>
                             <TableCell>
-                                <FaEdit style={{ cursor: "pointer", color: "#034C8C" }} />
+                                <FontAwesomeIcon icon={faEdit} style={{ cursor: "pointer", color: "#034C8C" }} />
                             </TableCell>
                         </TableRow>
                     ))}
