@@ -1,5 +1,4 @@
-import Header from "../../components/sugest_header"; 
-import SugestaoLista from "../../components/sugest_lista";
+import SugestaoLista from "../../components/SugestComponents/sugest_lista";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -10,7 +9,6 @@ const Container = styled.div`
 const SugesTitulo = () => {
     return (
       <Container>
-        <Header />
         <SugestaoLista />
       </Container>
     );

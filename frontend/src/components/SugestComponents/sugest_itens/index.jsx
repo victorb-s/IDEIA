@@ -1,6 +1,5 @@
-import React from "react";
 import { ItemContainer, ItemText, Icon } from "./styles";
-import icon_lapis from '../../assets/icon_lapis.svg';
+import icon_lapis from '../../../assets/icon_lapis.svg';
 
 function Sugestaoitem({ text }) {
   return (
