@@ -1,13 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Toolbar from './toolbar.jsx'
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    background-color:#ededed;
+  }
+`;
 
 const Container = styled.div`
   width: 60%;
   margin: 40px auto;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // background-color: #ededed;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const TitleInput = styled.input`
@@ -31,6 +37,7 @@ const TextArea = styled.textarea`
 function Redacao({ title, setTitle, content, setContent }) {
   return (
     <Container>
+      <GlobalStyle/>
       <Toolbar/>  
     </Container>
   );
