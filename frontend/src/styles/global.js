@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { CreateGlobalStyle } from 'styled-components'
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = CreateGlobalStyle`
     * {
         margin: 0;
         padding: 0;
@@ -10,8 +10,6 @@ export const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
         word-wrap: break-word;
         overflow-wrap: break-word;
-
-        font-family: 'Roboto', sans-serif;
     }
 
     :root{
