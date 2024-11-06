@@ -1,8 +1,9 @@
-
+import ContentEditor from "../../components/InfoComponents/info_content";
 
 const Informacao = () => {
     return (
-      <div>Informacao</div>
+      <ContentEditor> 
+      </ContentEditor>
     )
   }
   
