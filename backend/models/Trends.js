@@ -10,9 +10,22 @@ const Trend = sequelize.define('Trend', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  formatted_traffic: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  time_ago: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  created_at: {
+    type: DataTypes.DATE,
+    allowNull: false,
+    defaultValue: DataTypes.NOW,
+  },
 }, {
   tableName: 'trends',
-  timestamps: true,
+  timestamps: false,
 });
 
 module.exports = Trend;

@@ -1,32 +1,40 @@
-const pool = require('../db/db');
+const Trend = require('../models/Trends');
 
 exports.findAll = async () => {
   try {
-    const result = await pool.query('SELECT * FROM trends');
-    return result.rows;
+    const trends = await Trend.findAll();
+    return trends;
   } catch (err) {
     console.error('Erro ao buscar todos os trends:', err);
     throw err;
   }
 };
 
-exports.create = async(trendData, transactionClient) => {
+exports.create = async (trendData, transaction) => {
   try {
     const { title, category, formatted_traffic, time_ago } = trendData;
-    const result = await (transactionClient || pool).query(
-      'INSERT INTO trends (title, category, formatted_traffic, time_ago, created_at) VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP) RETURNING *',
-      [title, category, formatted_traffic, time_ago]
+    const newTrend = await Trend.create(
+      {
+        title,
+        category,
+        formatted_traffic,
+        time_ago,
+      },
+      { transaction }
     );
-    return result.rows[0];
+    return newTrend;
   } catch (err) {
     console.error('Erro ao criar trend:', err);
     throw err;
   }
 };
 
-exports.deleteOldTrends = async (transactionClient) => {
+exports.deleteOldTrends = async (transaction) => {
   try {
-    await (transactionClient || pool).query(`DELETE FROM trends;`);
+    await Trend.destroy({
+      where: {},
+      transaction,
+    });
     console.log('Todos os dados antigos foram excluídos com sucesso.');
   } catch (err) {
     console.error('Erro ao excluir trends antigos:', err);
@@ -35,17 +43,15 @@ exports.deleteOldTrends = async (transactionClient) => {
 };
 
 exports.transaction = async (callback) => {
-  const transactionClient = await pool.connect();
+  const sequelize = require('../db/db'); 
+  const transaction = await sequelize.transaction();
   try {
-    await transactionClient.query('BEGIN');
-    const result = await callback(transactionClient);
-    await transactionClient.query('COMMIT');
+    const result = await callback(transaction);
+    await transaction.commit();
     return result;
   } catch (error) {
-    await transactionClient.query('ROLLBACK');
+    await transaction.rollback();
     console.error('Erro na transação:', error);
     throw error;
-  } finally {
-    transactionClient.release();
   }
 };
