@@ -2,14 +2,13 @@ const Trend = require('../models/Trends');
 
 exports.findAll = async () => {
   try {
-    const trends = await Trend.findAll();
+    const trends = await Trend.findAll({ raw: true });
     return trends;
   } catch (err) {
     console.error('Erro ao buscar todos os trends:', err);
     throw err;
   }
 };
-
 exports.create = async (trendData, transaction) => {
   try {
     const { title, category, formatted_traffic, time_ago } = trendData;
