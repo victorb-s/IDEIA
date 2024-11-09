@@ -134,8 +134,9 @@ const TextContainer = styled.div`
   background-color: #fff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  border-radius: 8px;
   outline: none;
-  overflow:scroll;
+  overflow-y: scroll;
 
   /* Ajuste para telas menores */
   @media (max-width: 768px) {

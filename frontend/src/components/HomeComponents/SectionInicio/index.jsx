@@ -4,6 +4,14 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 // import RainbowSide from '../../../assets/JCRainbow.svg';
 
 const SectionInicio = () => {
+  const handleScroll = (e) => {
+    e.preventDefault(); // Evita o comportamento padrão do link
+    const section = document.getElementById("sugesTitulos");
+    if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+};
+
   return (
     <Container>
       <Column>
@@ -12,7 +20,7 @@ const SectionInicio = () => {
           <p>Digite apenas algumas palavras-chaves e aproveite dezenas de sugestões de títulos e conteúdos!</p>
         </TextContainer>
 
-        <ButtonContainer to='/'>
+        <ButtonContainer to='#sugesTitulos' onClick={handleScroll}>
           <p>Experimente agora</p>
           <ArrowCircle>
             <IconArrow icon={faArrowRight}/>

@@ -1,4 +1,5 @@
 import SugestaoLista from "../../components/SugestComponents/sugest_lista";
+import { HeaderBlue } from "../../components/Header";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -7,11 +8,12 @@ const Container = styled.div`
 `;
 
 const SugesTitulo = () => {
-    return (
+    return (<>
+      <HeaderBlue />
       <Container>
         <SugestaoLista />
       </Container>
-    );
+    </>);
 };
 
 export default SugesTitulo;

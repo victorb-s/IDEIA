@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { TopicosConteiner, Titulo, Topicos, TableHeader, TableRow, TableCell } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -14,7 +14,7 @@ const TrendingTopics = () => {
     }, []);
 
     return (
-        <TopicosConteiner>
+        <TopicosConteiner id="sugesTitulos">
             <Titulo>
                 <h1>Em alta</h1>
                 <div className="linha"></div>
