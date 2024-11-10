@@ -62,6 +62,29 @@ export const HeaderContainerB = styled.header`
     z-index: 99;
 `
 
+const ResponsiveLeft = css`
+    @media (max-width: 1024px){
+        max-width: 50%;
+        .headerLogo{
+            max-width: 4vw;
+        }
+    }
+
+    @media (max-width: 768px){
+        max-width: 60%;
+        .headerLogo{
+            max-width: 5vw;
+        }
+    }
+
+    @media (max-width: 425px){
+        max-width: 70%;
+        .headerLogo{
+            max-width: 8vw;
+        }
+    }
+`
+
 export const ContainerLeft = styled.div`
     display: flex;
     width: 100%;
@@ -72,9 +95,11 @@ export const ContainerLeft = styled.div`
 
     .headerLogo{
         width: 100%;
-        max-width: 50px;
+        max-width: 2.5vw;
         cursor: pointer;
     }
+
+    ${ResponsiveLeft}
 `
 
 export const TituloContainer = styled.div`
@@ -86,12 +111,13 @@ export const TituloContainer = styled.div`
     align-items: center;
     justify-content: center;
 
+    font-size: clamp(0.7rem, 2vw, 1rem);
     color: #838383;
 `
 
 export const IconContainer = styled.div`
     color: #034C8C;
-    font-size: 1.8rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     cursor: pointer;
 `
 
