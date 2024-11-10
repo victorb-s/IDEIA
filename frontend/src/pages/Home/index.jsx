@@ -10,12 +10,13 @@ import SectionHeading from "../../components/HomeComponents/SectionHeading";
 import ProjectNavigation from "../../components/HomeComponents/ProjectNavigation";
 import SectionProjetos from "../../components/HomeComponents/SectionProjetos";
 
-const Home = () => {
+// eslint-disable-next-line react/prop-types
+const Home = ({ handleSelectTopic }) => {
   return (
     <>
       <HeaderRed />
       <SectionInicio id="inicio"/>
-      <TrendingTopics id="trending"/>
+      <TrendingTopics id="trending" handleSelectTopic={handleSelectTopic}/>
       <HomeInfos id="infos"/>
       <SectionContainer>
         <SectionHeading text="Projetos Recentes" />

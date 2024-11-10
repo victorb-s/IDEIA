@@ -6,10 +6,10 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { api } from '../../../services/app';
 
 // eslint-disable-next-line react/prop-types
-const TrendingTopics = ({ id }) => {
+const TrendingTopics = ({ id, handleSelectTopic }) => {
     const [topics, setTopics] = useState([]);
     // eslint-disable-next-line no-unused-vars
-    const [categoria, setCategoria] = useState("Brasil")
+    const [categoria, setCategoria] = useState("BR")
 
     useEffect(() => {
         // fetch(`http://localhost:3000/api/v1/trends?category=${categoria}`)
@@ -44,7 +44,7 @@ const TrendingTopics = ({ id }) => {
                             <TableCell>{topic.formatted_traffic}</TableCell>
                             <TableCell>{topic.time_ago}</TableCell>
                             <TableCell>
-                                <FontAwesomeIcon icon={faEdit} style={{ cursor: "pointer", color: "#034C8C" }} />
+                                <FontAwesomeIcon icon={faEdit} style={{ cursor: "pointer", color: "#034C8C" }} onClick={() => handleSelectTopic(topic.title)}/>
                             </TableCell>
                         </TableRow>
                     ))}

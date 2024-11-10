@@ -1,16 +1,27 @@
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Home from './pages/Home'
 import Informacao from './pages/InfosConteudo'
 import Redacao from './pages/Redacao'
 import Sugestoes from './pages/SugesTitulo'
 
 const App = () => {
+  const [topic, setTopic] = useState('');
+  const navigate = useNavigate();
+
+  const handleSelectTopic = (topic) => {
+    setTopic(topic);
+    navigate('/sugestoes');
+  }
+  
   return (<>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Home handleSelectTopic={handleSelectTopic}/>}/>
       <Route path='/informacoes' element={<Informacao/>}></Route>
+      <Route path='/sugestoes' element={<Sugestoes topic={topic}/>}></Route>
       <Route path='/redacao' element={<Redacao/>}></Route>
-      <Route path='/sugestoes' element={<Sugestoes/>}></Route>
     </Routes>
   </>)
 }
