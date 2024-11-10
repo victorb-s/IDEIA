@@ -3,11 +3,21 @@ const trendsRepository = require('../repositories/trendsRepository');
 
 const fetchGoogleTrends = async () => {
   try {
-    const brazilResults = await googleTrends.dailyTrends({ geo: 'BR' });
+    const brazilResults = await googleTrends.dailyTrends({
+      geo: 'BR',
+      hl: 'pt-BR',
+      timezone: -180,
+    });
+
     const parsedBrazilResults = JSON.parse(brazilResults);
     const brazilTrendingDays = parsedBrazilResults.default.trendingSearchesDays;
 
-    const globalResults = await googleTrends.dailyTrends({ geo: 'US' });
+    const globalResults = await googleTrends.dailyTrends({ 
+      geo: 'US',
+      hl: 'pt-BR',
+      timezone: -180,
+    });
+
     const parsedGlobalResults = JSON.parse(globalResults);
     const globalTrendingDays = parsedGlobalResults.default.trendingSearchesDays;
 
@@ -15,11 +25,11 @@ const fetchGoogleTrends = async () => {
       await trendsRepository.deleteOldTrends(transactionClient);
 
       for (const day of brazilTrendingDays) {
-        await processTrendingTopics(day.trendingSearches, 'Brasil', transactionClient);
+        await processTrendingTopics(day.trendingSearches, 'BR', transactionClient);
       }
 
       for (const day of globalTrendingDays) {
-        await processTrendingTopics(day.trendingSearches, 'Mundo', transactionClient);
+        await processTrendingTopics(day.trendingSearches, 'US', transactionClient);
       }
     });
 
@@ -51,17 +61,17 @@ const getTrendsGroupedByCategory = async (category) => {
   try {
     const trends = await trendsRepository.findAll();
     const response = {
-      Brasil: [],
-      Mundo: []
+      BR: [],
+      US: []
     };
 
     for (const trend of trends) {
       const { title, category: trendCategory, ...otherData } = trend;
 
-      if (trendCategory === 'Brasil') {
-        response.Brasil.push({ id: trend.id, title, ...otherData });
-      } else if (trendCategory === 'Mundo') {
-        response.Mundo.push({ id: trend.id, title, ...otherData });
+      if (trendCategory === 'BR') {
+        response.BR.push({ id: trend.id, title, ...otherData });
+      } else if (trendCategory === 'US') {
+        response.US.push({ id: trend.id, title, ...otherData });
       }
     }
 

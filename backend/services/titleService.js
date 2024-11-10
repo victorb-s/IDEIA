@@ -11,11 +11,12 @@ const generationConfig = {
   maxOutputTokens: 8192,
   responseMimeType: 'text/plain',
 };
+
 async function generateTitles(topics) {
   try {
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-1.5-flash',
-      systemInstruction:'Você é um assistente útil para escritores jornalísticos. Sua tarefa é gerar títulos interessantes com base nos tópicos mais relevantes que você receber. Seja o mais objetivo possível e gere títulos curtos e quentes, de preferência em uma linha por título. Devolva 5 titulos separados por | e sem espações em branco.',     
+      systemInstruction: 'Você é um assistente útil para escritores jornalísticos. Sua tarefa é gerar títulos interessantes com base nos tópicos mais relevantes que você receber. Seja o mais objetivo possível e gere títulos curtos e quentes, de preferência em uma linha por título. Devolva 5 titulos separados por | e sem espaços em branco. Gere as respostas no idioma português do brasil',     
     });
 
     const chat = model.startChat({
@@ -23,19 +24,12 @@ async function generateTitles(topics) {
       history: [],
     });
 
-    const titles = [];
-
     const result = await chat.sendMessage(topics);
-      const modelResponse = result.response.text();
-      console.log(`${modelResponse}`);
+    const modelResponse = await result.response.text();
+    console.log(`${modelResponse}`);
 
-      const titlesArray = modelResponse.split('|').map(title => title.trim());
+    return modelResponse.split('|').map(title => ({ title: title.trim() }));
 
-      titlesArray.forEach((title) => {
-        titles.push({ titulo: title });
-      });
-
-    return titles;
   } catch (error) {
     console.error('Erro na geração de títulos:', error);
     throw error;
