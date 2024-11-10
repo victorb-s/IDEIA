@@ -1,9 +1,17 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from "react-router-dom"
+
+const ResponsiveHamburguer = css`
+    @media (min-width: 769px){
+        .hambNav{
+            display: none;
+        }
+    }
+`
 
 export const HeaderContainer = styled.header`
     width: 100%;
-    height: 10vh;
+    height: 8vh;
 
     display: flex;
     flex-direction: row;
@@ -24,11 +32,23 @@ export const HeaderContainer = styled.header`
         height: 1px;
         background: #DA251C;
     }
+    
+    .hambNav{
+        color: #DA251C;
+        z-index: 1000;
+        font-size: clamp(1.5rem, 2.5vw, 1.7rem);
+    }
+
+    .open{
+        right: 0;
+    }
+
+    ${ResponsiveHamburguer}
 `
 
 export const HeaderContainerB = styled.header`
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
 
     display: flex;
@@ -36,10 +56,33 @@ export const HeaderContainerB = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 2vw;
+    padding: 0 5vw;
     position: relative;
     background: #fff;
     z-index: 99;
+`
+
+const ResponsiveLeft = css`
+    @media (max-width: 1024px){
+        max-width: 50%;
+        .headerLogo{
+            max-width: 4vw;
+        }
+    }
+
+    @media (max-width: 768px){
+        max-width: 60%;
+        .headerLogo{
+            max-width: 5vw;
+        }
+    }
+
+    @media (max-width: 425px){
+        max-width: 70%;
+        .headerLogo{
+            max-width: 8vw;
+        }
+    }
 `
 
 export const ContainerLeft = styled.div`
@@ -49,6 +92,14 @@ export const ContainerLeft = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 2.5rem;
+
+    .headerLogo{
+        width: 100%;
+        max-width: 2.5vw;
+        cursor: pointer;
+    }
+
+    ${ResponsiveLeft}
 `
 
 export const TituloContainer = styled.div`
@@ -60,13 +111,35 @@ export const TituloContainer = styled.div`
     align-items: center;
     justify-content: center;
 
+    font-size: clamp(0.7rem, 2vw, 1rem);
     color: #838383;
 `
 
 export const IconContainer = styled.div`
     color: #034C8C;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
     cursor: pointer;
+`
+
+const ResponsiveNavCont = css`
+    @media (max-width: 768px){
+        position: fixed;
+        top: 0;
+        right: -100%;
+  
+        flex-direction: column;
+        text-align: center;
+        z-index: 999;
+
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        width: 80%;
+        height: 100%;
+        padding: 6rem 3rem 0;
+        transition: right 0.4s;
+    }
 `
 
 export const NavContainer = styled.ul`
@@ -75,6 +148,8 @@ export const NavContainer = styled.ul`
     gap: 2.5rem;
 
     list-style: none;
+
+    ${ResponsiveNavCont}
 `
 
 export const NavLink = styled(Link)`

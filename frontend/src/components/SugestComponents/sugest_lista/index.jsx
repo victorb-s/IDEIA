@@ -10,7 +10,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 // eslint-disable-next-line react/prop-types
-function SugestaoLista({ topic }) {
+function SugestaoLista({ topic, handleSelectTitle }) {
   const [sugestoes, setSugestoes] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -43,7 +43,7 @@ function SugestaoLista({ topic }) {
         </LoadingContainer>
       ) : (
         sugestoes.map((title, index) => (
-          <Sugestaoitem key={index} text={title.title} />
+          <Sugestaoitem key={index} text={title.title} handleSelectTitle={handleSelectTitle}/>
         ))
       )}
       <GerarBotao />

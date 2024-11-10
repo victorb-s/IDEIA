@@ -35,9 +35,9 @@ const Container = styled.div`
 // `;
 
 // eslint-disable-next-line no-unused-vars, react/prop-types
-const Redacao = ({ title, setTitle, content, setContent }) => {
+const Redacao = ({ title, content }) => {
   return (<>
-    <HeaderBlue />
+    <HeaderBlue title={title}/>
     <Container>
       <GlobalStyle/>
       <Toolbar/>  

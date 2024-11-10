@@ -9,19 +9,25 @@ import Sugestoes from './pages/SugesTitulo'
 
 const App = () => {
   const [topic, setTopic] = useState('');
+  const [title, setTitle] = useState('');
   const navigate = useNavigate();
 
   const handleSelectTopic = (topic) => {
     setTopic(topic);
     navigate('/sugestoes');
   }
+
+  const handleSelectTitle = (title) => {
+    setTitle(title);
+    navigate('/redacao');
+  }
   
   return (<>
     <Routes>
       <Route path='/' element={<Home handleSelectTopic={handleSelectTopic}/>}/>
       <Route path='/informacoes' element={<Informacao/>}></Route>
-      <Route path='/sugestoes' element={<Sugestoes topic={topic}/>}></Route>
-      <Route path='/redacao' element={<Redacao/>}></Route>
+      <Route path='/sugestoes' element={<Sugestoes topic={topic} handleSelectTitle={handleSelectTitle}/>}></Route>
+      <Route path='/redacao' element={<Redacao title={title}/>}></Route>
     </Routes>
   </>)
 }

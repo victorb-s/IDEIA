@@ -23,7 +23,7 @@ export const TextContainer = styled.div`
     p{
         color: #fff;
         text-align: center;
-        font-size: 15px;
+        font-size: clamp(0.7rem , 2vw, 1rem);
     }
 
     span{
@@ -47,7 +47,7 @@ export const IconsContainer = styled.div`
 
 export const Icons = styled(FontAwesomeIcon)`
     color: #fff;
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.4rem);
     transition: 0.2s ease-in-out;
 
     &:hover{
