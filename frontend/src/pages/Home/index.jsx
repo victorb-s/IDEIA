@@ -19,7 +19,6 @@ const Home = ({ handleSelectTopic }) => {
       <HomeInfos id="infos"/>
       <SectionContainer>
         <SectionHeading text="Projetos Recentes" />
-        <ProjectNavigation id="projetos"/>
         <SectionProjetos  />
       </SectionContainer>
       <Footer />

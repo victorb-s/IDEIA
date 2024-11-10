@@ -41,7 +41,7 @@ const ResponsiveColumn = css`
     }
 
     @media (max-width: 480px) {
-        max-width: 100%;
+        max-width: 90%;
     }
 `
 
@@ -67,7 +67,7 @@ export const TextContainer = styled.div`
 
     h1{
         color: #DA251C;
-        font-size: clamp(2rem, 4vw, 4rem);
+        font-size: clamp(1.6rem, 4vw, 4rem);
     }
 
     p{
