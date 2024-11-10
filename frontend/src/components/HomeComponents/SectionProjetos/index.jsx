@@ -52,7 +52,7 @@ const SectionProjetos = () => {
 
   return (
     <Container>
-      <ProjectNavigation />
+      <ProjectNavigation id="projetos"/>
       {projetos.length > 0 ? (
         projetos.map((projeto, index) => (
           <Card key={index}>

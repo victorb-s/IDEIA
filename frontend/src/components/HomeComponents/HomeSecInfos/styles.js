@@ -1,6 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import JCrainbow from "../../../assets/JC rainbow.svg";
 import ArrowUp from "../../../assets/arrow-up.svg";
+
+const ResponsiveContainer = css`
+    @media (max-width: 1024px) {
+        background: none;
+        height: 70vh;
+    }
+
+    @media (max-width: 768px) {
+        height: 50vh;
+    }
+`
 
 export const GeneralContainer = styled.div`
     display: flex;
@@ -13,7 +24,35 @@ export const GeneralContainer = styled.div`
     background-image: url(${JCrainbow});
     background-repeat: no-repeat;
     background-position-y: 10%;
+
+    ${ResponsiveContainer}
 `;
+
+const ResponsiveForms = css`
+    @media (max-width: 1024px) {
+        width: 60%;
+
+        .textInput {
+            width: 25vw;
+        }
+    }
+
+    @media (max-width: 768px) {
+        width: 75%;
+
+        .textInput {
+            width: 35vw;
+        }
+    }
+
+    @media (max-width: 480px) {
+        width: 90%;
+
+        .textInput {
+            width: 50vw;
+        }
+    }
+`
 
 export const CategoryForms = styled.form`
     display: flex;
@@ -21,22 +60,27 @@ export const CategoryForms = styled.form`
     text-align: end;
     gap: 16px;
     flex-direction: column;
-    padding-right: 118px;
+    padding-right: 6vw;
     align-items: end;
 
     h1 {
-        font-size: 64px;
+        font-size: clamp(1.6rem, 4vw, 4rem);
         color: #da251c;
     }
+
     label {
-        font-size: 18px;
+        font-size: clamp(0.8rem, 2vw, 1.1rem);
         font-weight: 300;
     }
+
     .textInput {
-        width: 256px;
+        width: 15vw;
         padding: 8px 12px;
         border: 0;
+
+        font-size: clamp(0.7rem, 2vw, 1rem);
     }
+
     .divInput {
         display: flex;
         justify-content: space-between;
@@ -44,6 +88,7 @@ export const CategoryForms = styled.form`
         align-items: center;
         text-align: center;
     }
+
     .submitInput {
         border: none;
         background-image: url(${ArrowUp});
@@ -53,4 +98,6 @@ export const CategoryForms = styled.form`
         background-position: center;
         background-color: white;
     }
+
+    ${ResponsiveForms}
 `;

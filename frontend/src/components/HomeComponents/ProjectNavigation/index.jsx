@@ -6,6 +6,7 @@ import {
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 
 import { ProjNavContainer, ControlsContainer, Input } from "./styles";
+// eslint-disable-next-line react/prop-types
 const ProjectNavigation = ({ id }) => {
   return (
     <ProjNavContainer id={id}>
