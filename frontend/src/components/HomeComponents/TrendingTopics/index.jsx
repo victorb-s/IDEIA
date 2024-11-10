@@ -3,15 +3,24 @@ import { TopicosConteiner, Titulo, Topicos, TableHeader, TableRow, TableCell } f
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
+import { api } from '../../../services/app';
+
+// eslint-disable-next-line react/prop-types
 const TrendingTopics = ({ id }) => {
     const [topics, setTopics] = useState([]);
+    // eslint-disable-next-line no-unused-vars
+    const [categoria, setCategoria] = useState("Brasil")
 
     useEffect(() => {
-        fetch("http://localhost:3001/topics")
-            .then((response) => response.json())
-            .then((data) => setTopics(data))
-            .catch((error) => console.error("Erro ao carregar dados:", error));
-    }, []);
+        // fetch(`http://localhost:3000/api/v1/trends?category=${categoria}`)
+        //     .then((response) => response.json())
+        //     .then((data) => setTopics(data))
+        //     .catch((error) => console.error("Erro ao carregar dados:", error));
+
+        api.get(`/v1/trends?category=${categoria}`)
+        .then((response) => setTopics(response.data))
+        .catch((error) => console.error("Erro ao carregar dados:", error));
+    }, [categoria]);
 
     return (
         <TopicosConteiner id={id}>
@@ -31,9 +40,9 @@ const TrendingTopics = ({ id }) => {
                 <tbody>
                     {topics.map((topic, index) => (
                         <TableRow key={index}>
-                            <TableCell>{topic.name}</TableCell>
-                            <TableCell>{topic.volume}</TableCell>
-                            <TableCell>{topic.started}</TableCell>
+                            <TableCell>{topic.title}</TableCell>
+                            <TableCell>{topic.formatted_traffic}</TableCell>
+                            <TableCell>{topic.time_ago}</TableCell>
                             <TableCell>
                                 <FontAwesomeIcon icon={faEdit} style={{ cursor: "pointer", color: "#034C8C" }} />
                             </TableCell>
