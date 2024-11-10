@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 export const HeaderContainer = styled.header`
     width: 100%;
-    height: 10vh;
+    height: 8vh;
 
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@ export const HeaderContainer = styled.header`
 
 export const HeaderContainerB = styled.header`
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
 
     display: flex;
@@ -36,7 +36,7 @@ export const HeaderContainerB = styled.header`
     justify-content: space-between;
     align-items: center;
 
-    padding: 0 2vw;
+    padding: 0 5vw;
     position: relative;
     background: #fff;
     z-index: 99;
@@ -49,6 +49,12 @@ export const ContainerLeft = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 2.5rem;
+
+    .headerLogo{
+        width: 100%;
+        max-width: 50px;
+        cursor: pointer;
+    }
 `
 
 export const TituloContainer = styled.div`
@@ -65,7 +71,7 @@ export const TituloContainer = styled.div`
 
 export const IconContainer = styled.div`
     color: #034C8C;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
 `
 

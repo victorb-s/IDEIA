@@ -6,16 +6,16 @@ import styled from "styled-components";
 const Container = styled.div`
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  height: 70vh;
+  height: 72vh;
   overflow-y: hidden;
 `;
 
 // eslint-disable-next-line react/prop-types
-const Sugestoes = ({ topic }) => {
+const Sugestoes = ({ topic, handleSelectTitle }) => {
     return (<>
       <HeaderBlue />
       <Container>
-        <SugestaoLista topic={topic}/>
+        <SugestaoLista topic={topic} handleSelectTitle={handleSelectTitle}/>
       </Container>
       <Footer />
     </>);
