@@ -11,12 +11,24 @@ import HeaderLogo from '../../assets/logoHeaderSjcc.svg'
 import HeaderBLogo from '../../assets/logoSolSjcc.svg'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { Link, useLocation } from 'react-router-dom'
+import { useState } from "react";
 
 export const HeaderRed = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const closeMenuOnMobile = () => {
+    if (window.innerWidth <= 768) {
+      setShowMenu(false);
+    }
+  };
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -28,13 +40,18 @@ export const HeaderRed = () => {
   return (
     <HeaderContainer>
         <img src={HeaderLogo} alt="Logo Header SJCC" />
-        {location.pathname === '/' && (
-          <NavContainer>
-            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('inicio'); }}>Home</NavLink></li>
-            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('trending'); }}>Em Alta</NavLink></li>
-            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); }}>Meus Projetos</NavLink></li>
+        {location.pathname === '/' && (<>
+          {showMenu ? (
+            <FontAwesomeIcon icon={faXmark} className="hambNav" onClick={toggleMenu}/>
+          ) : (
+            <FontAwesomeIcon icon={faBars} className="hambNav" onClick={toggleMenu}/>
+          )}    
+          <NavContainer className={showMenu ? "open" : ""}>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('inicio'); closeMenuOnMobile(); }}>Home</NavLink></li>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('trending'); closeMenuOnMobile(); }}>Em Alta</NavLink></li>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); closeMenuOnMobile(); }}>Meus Projetos</NavLink></li>
           </NavContainer>
-        )}
+        </>)}
     </HeaderContainer>
   )
 }
