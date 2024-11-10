@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Styled from "./styles";
 
-export const HomeInfos = () => {
+export const HomeInfos = ({ id }) => {
   const [categoria, setCategoria] = useState("");
 
   const handleSubmit = (e) => {
@@ -10,7 +10,7 @@ export const HomeInfos = () => {
   };
 
   return (
-    <Styled.GeneralContainer>
+    <Styled.GeneralContainer id={id}>
       <Styled.CategoryForms onSubmit={handleSubmit}>
         <h1>Deseja buscar sobre algo específico? Com nossa IA, você pode!</h1>
         <label htmlFor="categoria">

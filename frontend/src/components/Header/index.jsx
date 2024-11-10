@@ -18,14 +18,21 @@ import { Link, useLocation } from 'react-router-dom'
 export const HeaderRed = () => {
   const location = useLocation();
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <HeaderContainer>
         <img src={HeaderLogo} alt="Logo Header SJCC" />
         {location.pathname === '/' && (
           <NavContainer>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/">Em Alta</NavLink></li>
-            <li><NavLink to="/">Meus Projetos</NavLink></li>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('inicio'); }}>Home</NavLink></li>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('trending'); }}>Em Alta</NavLink></li>
+            <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); }}>Meus Projetos</NavLink></li>
           </NavContainer>
         )}
     </HeaderContainer>

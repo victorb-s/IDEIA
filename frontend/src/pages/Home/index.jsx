@@ -14,12 +14,12 @@ const Home = () => {
   return (
     <>
       <HeaderRed />
-      <SectionInicio/>
-      <TrendingTopics/>
-      <HomeInfos />
+      <SectionInicio id="inicio"/>
+      <TrendingTopics id="trending"/>
+      <HomeInfos id="infos"/>
       <SectionContainer>
         <SectionHeading text="Projetos Recentes" />
-        <ProjectNavigation />
+        <ProjectNavigation id="projetos"/>
         <SectionProjetos  />
       </SectionContainer>
       <Footer />
