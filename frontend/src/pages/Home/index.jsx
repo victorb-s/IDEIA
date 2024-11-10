@@ -7,7 +7,6 @@ import { HomeInfos } from "../../components/HomeComponents/HomeSecInfos";
 
 import { SectionContainer } from "./styles";
 import SectionHeading from "../../components/HomeComponents/SectionHeading";
-import ProjectNavigation from "../../components/HomeComponents/ProjectNavigation";
 import SectionProjetos from "../../components/HomeComponents/SectionProjetos";
 
 // eslint-disable-next-line react/prop-types

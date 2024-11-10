@@ -4,21 +4,24 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 0 30px;
   min-height: 100vh;
   text-align: center;
   fl & .sem-projeto {
     font-size: 1.5em;
     color: #555;
   }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Card = styled.div`
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px 0;
   width: 280px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;

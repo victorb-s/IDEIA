@@ -15,6 +15,15 @@ export const Heading = styled.h1`
   font-weight: 300;
 
   white-space: nowrap;
+  @media (max-width: 768px) {
+    font-size: 48px;
+  }
+  @media (max-width: 640px) {
+    font-size: 40px;
+  }
+  @media(max-width: 344px) {
+    font-size: 32px;
+  }
 `;
 
 export const Line = styled.span`
@@ -23,4 +32,5 @@ export const Line = styled.span`
   height: 1px;
   position: relative;
   background-color: #da251c;
+  }
 `;

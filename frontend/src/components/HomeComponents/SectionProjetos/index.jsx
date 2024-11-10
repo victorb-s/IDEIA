@@ -1,4 +1,4 @@
-import React from "react";
+import ProjectNavigation from "../ProjectNavigation";
 import { Card, CardImg, CardInfos, Container } from "./styles";
 
 const SectionProjetos = () => {
@@ -52,6 +52,7 @@ const SectionProjetos = () => {
 
   return (
     <Container>
+      <ProjectNavigation />
       {projetos.length > 0 ? (
         projetos.map((projeto, index) => (
           <Card key={index}>
