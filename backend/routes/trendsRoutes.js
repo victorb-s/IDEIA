@@ -17,10 +17,10 @@ const router = express.Router();
  *       - in: query
  *         name: category
  *         required: false
- *         description: Categoria da tendência (Brasil ou Mundo)
+ *         description: Categoria da tendência (BR ou US)
  *         schema:
  *           type: string
- *           example: "Brasil"
+ *           example: "BR"
  *     responses:
  *       200:
  *         description: Uma lista de tendências retornada com sucesso

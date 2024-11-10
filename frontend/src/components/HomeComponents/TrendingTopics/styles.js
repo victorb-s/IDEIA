@@ -7,6 +7,9 @@ export const TopicosConteiner = styled.div`
     background-color: #ffffff;
     border: 1px solid #DA251C;
     border-radius: 10px;
+
+    max-height: 60vh;
+    overflow-y: auto;
 `;
 
 export const Titulo = styled.div`

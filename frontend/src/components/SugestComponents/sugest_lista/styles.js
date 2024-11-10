@@ -15,10 +15,12 @@ export const ListaContainer = styled.div`
 export const TituloLista = styled.div`
   padding: 20px;
   margin: 10px 0;
+  
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
   color: #034C8C;
   font-weight: bold;
-  font-size: 16px;
+  font-size: clamp(1rem, 2vw, 1.6rem);
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 `;

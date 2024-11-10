@@ -1,10 +1,11 @@
 import { ItemContainer, ItemText, Icon } from "./styles";
-import icon_lapis from '../../../assets/icon_lapis.svg';
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
-function Sugestaoitem({ text }) {
+// eslint-disable-next-line react/prop-types
+function Sugestaoitem({ text, handleSelectTitle }) {
   return (
     <ItemContainer>
-        <Icon src={icon_lapis} alt="Ícone" /> 
+        <Icon icon={faEdit} alt="Ícone" onClick={() => handleSelectTitle(text)}/> 
       <ItemText>{text}</ItemText>
     </ItemContainer>
   );

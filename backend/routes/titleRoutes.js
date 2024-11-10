@@ -31,13 +31,10 @@ const router = express.Router();
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 titles:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
+ *                type: array
+ *                items:
+ *                 type: object
+ *                 properties:
  *                       title:
  *                         type: string
  *                         example: "Um Título Aleatório"

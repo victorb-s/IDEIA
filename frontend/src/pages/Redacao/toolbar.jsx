@@ -15,6 +15,7 @@ import { BiMinus, BiPlus, BiImage, BiPalette } from 'react-icons/bi';
 
 const ToolbarContainer = styled.div`
   display: flex;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em dispositivos móveis */
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
@@ -22,9 +23,15 @@ const ToolbarContainer = styled.div`
   border-radius: 25px;
   gap: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
-  margin-bottom: 16px;
-  width: 90%; /* Mesma largura da folha para alinhar */
   margin: 0 auto 16px auto;
+  width: 90%;
+
+  /* Ajuste para telas menores */
+  @media (max-width: 768px) {
+    padding: 8px;
+    gap: 6px;
+    justify-content: center; /* Centraliza os itens na tela menor */
+  }
 `;
 
 const ToolbarButton = styled.button`
@@ -37,8 +44,15 @@ const ToolbarButton = styled.button`
   color: #333;
   padding: 6px;
   border-radius: 4px;
+  
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  /* Ajuste de tamanho para telas menores */
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 4px;
   }
 `;
 
@@ -50,6 +64,12 @@ const FontSelector = styled.select`
   background-color: #fff;
   cursor: pointer;
   outline: none;
+
+  /* Ajuste de tamanho para telas menores */
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 2px 4px;
+  }
 `;
 
 const FontSizeSelector = styled.div`
@@ -58,6 +78,11 @@ const FontSizeSelector = styled.div`
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 2px;
+
+  /* Ajuste de tamanho para telas menores */
+  @media (max-width: 768px) {
+    padding: 1px;
+  }
 `;
 
 const FontSizeInput = styled.input`
@@ -67,6 +92,12 @@ const FontSizeInput = styled.input`
   outline: none;
   font-size: 14px;
   margin: 0 2px;
+
+  /* Ajuste de tamanho para telas menores */
+  @media (max-width: 768px) {
+    width: 30px;
+    font-size: 12px;
+  }
 `;
 
 const Separator = styled.div`
@@ -74,11 +105,18 @@ const Separator = styled.div`
   height: 20px;
   background-color: #ddd;
   margin: 0 4px;
+
+  /* Ajuste para telas menores */
+  @media (max-width: 768px) {
+    height: 15px;
+    margin: 0 2px;
+  }
 `;
 
 const TextContainerWrapper = styled.div`
   display: flex;
   justify-content: center;
+  padding: 0 10px;
 `;
 
 const TextContainer = styled.div`
@@ -94,10 +132,18 @@ const TextContainer = styled.div`
   width: 80%;
   padding: 16px;
   background-color: #fff;
-  // border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  border-radius: 8px;
   outline: none;
+  overflow-y: scroll;
+
+  /* Ajuste para telas menores */
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 12px;
+    font-size: ${({ fontSize }) => fontSize - 2}px; /* Diminui ligeiramente o tamanho da fonte */
+  }
 `;
 
 const Toolbar = () => {
@@ -228,20 +274,20 @@ const Toolbar = () => {
         <ToolbarButton onClick={() => changeTextAlign('right')}><FaAlignRight /></ToolbarButton>
         <ToolbarButton onClick={() => changeTextAlign('justify')}><FaAlignJustify /></ToolbarButton>
         <Separator />
+        <input type="color" style={{ display: colorPickerVisible ? 'inline' : 'none' }} onChange={handleColorChange} />
+        <ToolbarButton onClick={() => setColorPickerVisible(!colorPickerVisible)}><BiPalette /></ToolbarButton>
         <ToolbarButton as="label">
-          <BiImage size={20} />
-          <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
+          <BiImage />
+          <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} />
         </ToolbarButton>
       </ToolbarContainer>
-
       <TextContainerWrapper>
         <TextContainer
-          {...textStyles}
           contentEditable
-          suppressContentEditableWarning={true}
           ref={textRef}
+          {...textStyles}
         >
-          Este é o texto de exemplo que você pode estilizar usando a barra de ferramentas acima.
+          Digite seu texto aqui...
         </TextContainer>
       </TextContainerWrapper>
     </div>

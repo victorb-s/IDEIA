@@ -6,9 +6,9 @@ import {
 import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 
 import { ProjNavContainer, ControlsContainer, Input } from "./styles";
-const ProjectNavigation = () => {
+const ProjectNavigation = ({ id }) => {
   return (
-    <ProjNavContainer>
+    <ProjNavContainer id={id}>
       <Input>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input
