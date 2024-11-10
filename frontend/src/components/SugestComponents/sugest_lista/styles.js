@@ -10,6 +10,7 @@ export const ListaContainer = styled.div`
   margin-top: 2px;
   font-family: 'Roboto', sans-serif;
   border-radius: 8px;
+  min-height: 200px
 `;
 
 export const TituloLista = styled.div`
@@ -21,4 +22,12 @@ export const TituloLista = styled.div`
   font-family: 'Roboto', sans-serif;
   text-align: center;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
 `;
