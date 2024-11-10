@@ -1,5 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from "react-router-dom"
+
+const ResponsiveHamburguer = css`
+    @media (min-width: 769px){
+        .hambNav{
+            display: none;
+        }
+    }
+`
 
 export const HeaderContainer = styled.header`
     width: 100%;
@@ -24,6 +32,18 @@ export const HeaderContainer = styled.header`
         height: 1px;
         background: #DA251C;
     }
+    
+    .hambNav{
+        color: #DA251C;
+        z-index: 1000;
+        font-size: clamp(1.5rem, 2.5vw, 1.7rem);
+    }
+
+    .open{
+        right: 0;
+    }
+
+    ${ResponsiveHamburguer}
 `
 
 export const HeaderContainerB = styled.header`
@@ -75,12 +95,35 @@ export const IconContainer = styled.div`
     cursor: pointer;
 `
 
+const ResponsiveNavCont = css`
+    @media (max-width: 768px){
+        position: fixed;
+        top: 0;
+        right: -100%;
+  
+        flex-direction: column;
+        text-align: center;
+        z-index: 999;
+
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        width: 80%;
+        height: 100%;
+        padding: 6rem 3rem 0;
+        transition: right 0.4s;
+    }
+`
+
 export const NavContainer = styled.ul`
     display: flex;
     flex-direction: row;
     gap: 2.5rem;
 
     list-style: none;
+
+    ${ResponsiveNavCont}
 `
 
 export const NavLink = styled(Link)`
