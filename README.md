@@ -38,6 +38,7 @@ Assim, integrando IA com o google trends, criamos nosso assistente de redação,
 
 <div style="display: inline_block">
   <img align="center" alt="Docker" heigth="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg">
+  <img align="center" alt="PostgreSQL" heigth="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg">
 </div>
 
 ## 🎲 Como instalar:
