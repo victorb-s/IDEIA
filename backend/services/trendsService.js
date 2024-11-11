@@ -38,6 +38,7 @@ const fetchGoogleTrends = async () => {
     console.error('Erro ao buscar dados do Google Trends:', err);
   }
 };
+
 const processTrendingTopics = async (trendingTopics, category, transactionClient) => {
   for (const topic of trendingTopics) {
     const title = topic.title.query;
@@ -57,29 +58,19 @@ const processTrendingTopics = async (trendingTopics, category, transactionClient
 };
 
 
-const getTrendsGroupedByCategory = async (category) => {
+const getTrendsGroupedByCategory = async ({ category, offset, limit, sortBy, order }) => {
   try {
-    const trends = await trendsRepository.findAll();
-    const response = {
-      BR: [],
-      US: []
+    const { trends, totalCount, totalPages } = await trendsRepository.findAll({
+      category, offset, limit, sortBy, order
+    });
+
+    const filteredTrends = trends.filter(trend => trend.category === category);
+
+    return {
+      trends: filteredTrends,
+      totalCount,
+      totalPages
     };
-
-    for (const trend of trends) {
-      const { title, category: trendCategory, ...otherData } = trend;
-
-      if (trendCategory === 'BR') {
-        response.BR.push({ id: trend.id, title, ...otherData });
-      } else if (trendCategory === 'US') {
-        response.US.push({ id: trend.id, title, ...otherData });
-      }
-    }
-
-    if (category) {
-      return response[category] || [];
-    }
-
-    return response;
   } catch (err) {
     console.error('Erro ao buscar trends:', err);
     throw err;

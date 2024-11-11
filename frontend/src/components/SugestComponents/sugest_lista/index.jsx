@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Sugestaoitem from "../sugest_itens/index";
 import NavBotao from "../sugest_navbutton/index";
 import GerarBotao from "../sugest_gerarbutton";
-import { ListaContainer, TituloLista } from "./styles";
+import { ListaContainer, LoadingContainer, TituloLista } from "./styles";
 
 import { api } from '../../../services/app';
 
@@ -13,19 +13,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 function SugestaoLista({ topic, handleSelectTitle }) {
   const [sugestoes, setSugestoes] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await api.get(`/v1/title/generate?topics=${topic}`);
-  //       setSugestoes(response.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //     console.log(sugestoes);
-  //   }
-  //   fetchData();
-  // }, [topic]);
 
   const fetchData = async () => {
     try {
@@ -44,22 +31,25 @@ function SugestaoLista({ topic, handleSelectTitle }) {
 
   return (
     <ListaContainer>
-      <NavBotao/>
+      <NavBotao />
       <TituloLista>{topic}</TituloLista>
       {loading ? (
-        Array.from({ length: 5 }).map((_, index) => (
-          <div key={index} style={{ margin: "10px 0" }}>
-            <Skeleton height={30} width="100%" />
-          </div>
-        ))
+        <LoadingContainer>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div key={index} style={{ margin: "10px 0" }}>
+              <Skeleton height={30} width="60%" />
+            </div>
+          ))}
+        </LoadingContainer>
       ) : (
         sugestoes.map((title, index) => (
           <Sugestaoitem key={index} text={title.title} handleSelectTitle={handleSelectTitle}/>
         ))
       )}
-      <GerarBotao/>
+      <GerarBotao />
     </ListaContainer>
   );
 }
+
 
 export default SugestaoLista;

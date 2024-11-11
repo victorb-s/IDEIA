@@ -11,7 +11,7 @@ const router = express.Router();
  * 
  * /api/v1/trends:
  *   get:
- *     summary: Retorna tendências
+ *     summary: Retorna tendências com suporte a paginação e ordenação
  *     tags: [Trends]
  *     parameters:
  *       - in: query
@@ -21,6 +21,34 @@ const router = express.Router();
  *         schema:
  *           type: string
  *           example: "BR"
+ *       - in: query
+ *         name: page
+ *         required: false
+ *         description: Número da página para a paginação (default é 1)
+ *         schema:
+ *           type: integer
+ *           example: 1
+ *       - in: query
+ *         name: limit
+ *         required: false
+ *         description: Número de resultados por página (default é 10)
+ *         schema:
+ *           type: integer
+ *           example: 10
+ *       - in: query
+ *         name: sortBy
+ *         required: false
+ *         description: Campo pelo qual ordenar os resultados (default é 'formatted_traffic')
+ *         schema:
+ *           type: string
+ *           example: "formatted_traffic"
+ *       - in: query
+ *         name: order
+ *         required: false
+ *         description: Direção da ordenação (asc ou desc; default é 'desc')
+ *         schema:
+ *           type: string
+ *           example: "desc"
  *     responses:
  *       200:
  *         description: Uma lista de tendências retornada com sucesso
