@@ -7,6 +7,16 @@ export const TopicosConteiner = styled.div`
     background-color: #ffffff;
     border: 1px solid #DA251C;
     border-radius: 10px;
+
+    @media (max-width: 768px) {
+        width: 95%;
+        padding: 15px;
+    }
+
+    @media (max-width: 480px) {
+        width: 100%;
+        padding: 10px;
+    }
 `;
 
 export const Titulo = styled.div`
@@ -29,6 +39,19 @@ export const Titulo = styled.div`
     margin-bottom: 20px;
     }
 
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 25px;
+        }
+            
+    }
+
+    @media (max-width: 480px) {
+        h1{
+            font-size: 20px;
+            margin-left: 5px;
+        }
+    }
 `;
 
 export const Topicos = styled.table`
@@ -37,6 +60,14 @@ export const Topicos = styled.table`
     text-align: left;
     font-size: 20px;
     margin-top: 10px
+
+    @media (max-width: 768px) {
+        font-size: 18px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 16px;
+    }
 `;
 
 export const TableHeader = styled.th`
@@ -45,8 +76,16 @@ export const TableHeader = styled.th`
     font-weight: bold;
     border-bottom: 1px solid #ddd;
     min-width: 150px;
-`;
 
+    @media (max-width: 768px) {
+        padding: 8px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 6px;
+        font-size: 14px;
+    }
+`;
 
 export const TableRow = styled.tr`
     &:nth-child(even) {
@@ -61,6 +100,15 @@ export const TableCell = styled.td`
     max-width: 150px;
     word-wrap: break-word;
     white-space: normal;
+
+    @media (max-width: 768px) {
+        padding: 8px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 6px;
+        font-size: 14px;
+    }
 `;
 
 export const PaginationContainer = styled.div`
@@ -89,27 +137,55 @@ export const PaginationButton = styled.button`
         background-color: #DA251C;
         color: #fff;
     }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
 `;
 
 export const PaginationText = styled.span`
     font-size: 16px;
     color: #034C8C;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 12px;
+    }
 `;
 
 export const CategoriaButton = styled.button`
-  background-color: ${(props) => (props.isSelected ? "#DA251C" : "white")};
-  color: ${(props) => (props.isSelected ? "white" : "#DA251C")};
-  padding: 5px 25px;
-  border-radius: 5px;
-  margin: 10px 10px;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid #da251c;
-  transform: ${(props) => (props.isSelected ? "scale(1.1)" : "scale(1)")};
-  cursor: pointer;
+    background-color: ${(props) => (props.isSelected ? "#DA251C" : "white")};
+    color: ${(props) => (props.isSelected ? "white" : "#DA251C")};
+    padding: 5px 25px;
+    border-radius: 5px;
+    margin: 10px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #da251c;
+    transform: ${(props) => (props.isSelected ? "scale(1.1)" : "scale(1)")};
+    cursor: pointer;
 
-  &:hover {
-    background-color: #da251c;
-    color: white;
-  }
+    &:hover {
+        background-color: #da251c;
+        color: white;
+    }
+
+    @media (max-width: 768px) { /* Tablets */
+        font-size: 14px;
+        padding: 5px 20px;
+    }
+
+    @media (max-width: 480px) { /* Smartphones */
+        font-size: 12px;
+        padding: 5px 15px;
+    }
 `;
