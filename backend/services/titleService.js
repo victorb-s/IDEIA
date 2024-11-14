@@ -36,6 +36,31 @@ async function generateTitles(topics) {
   }
 }
 
+async function generateSummary(selectedTitle) {
+  try {
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-1.5-flash',
+      systemInstruction: 'Você é um assistente útil para escritores jornalísticos. Sua tarefa é gerar um resumo informativo com base no título fornecido. Mantenha o resumo breve e informativo, com no máximo 3 a 5 linhas. Gere a resposta no idioma português do brasil',
+    });
+
+    const chat = model.startChat({
+      generationConfig: generationConfig,
+      history: [],
+    });
+
+    const result = await chat.sendMessage(selectedTitle);
+    const summaryResponse = await result.response.text();
+    console.log(`Resumo: ${summaryResponse}`);
+
+    return summaryResponse.trim();
+
+  } catch (error) {
+    console.error('Erro na geração de resumo:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   generateTitles,
+  generateSummary,
 };

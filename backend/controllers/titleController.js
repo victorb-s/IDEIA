@@ -14,6 +14,21 @@ const generateTitle = async (req, res) => {
   }
 };
 
+const generateSummary = async (req, res) => {
+  try {
+    const { title } = req.query;
+    if (!title) {
+      return res.status(400).json({ error: 'Parâmetro "title" é obrigatório' });
+    }
+    const summary = await titleService.generateSummary(title);
+    res.status(200).json({ summary });
+  } catch (error) {
+    console.error('Erro ao gerar resumo:', error);
+    res.status(500).json({ error: 'Falha ao gerar resumo' });
+  }
+};
+
 module.exports = {
-  generateTitle
+  generateTitle,
+  generateSummary,
 };
