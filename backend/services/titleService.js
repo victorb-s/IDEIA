@@ -40,7 +40,7 @@ async function generateSummary(selectedTitle) {
   try {
     const model = genAI.getGenerativeModel({
       model: 'gemini-1.5-flash',
-      systemInstruction: 'Você é um assistente útil para escritores jornalísticos. Sua tarefa é gerar um resumo informativo com base no título fornecido. Mantenha o resumo breve e informativo, com no máximo 3 a 5 linhas. Gere a resposta no idioma português do brasil',
+      systemInstruction: 'Você é um assistente especializado em identificar e descrever tópicos populares de pesquisa. Com base no título fornecido, elabore um resumo curto e direto que sintetize o motivo pelo qual o tema é tendência, destacando os principais pontos de interesse para os usuários. Use entre 3 e 7 linhas, adotando um tom informativo e neutro, sem elaborar como um artigo. Escreva em português do Brasil.',
     });
 
     const chat = model.startChat({
