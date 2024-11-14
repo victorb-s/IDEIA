@@ -146,7 +146,7 @@ const TextContainer = styled.div`
   }
 `;
 
-const Toolbar = () => {
+const Toolbar = ({content}) => {
   const [textStyles, setTextStyles] = useState({
     fontFamily: 'Roboto',
     fontSize: 16,
@@ -287,7 +287,7 @@ const Toolbar = () => {
           ref={textRef}
           {...textStyles}
         >
-          Digite seu texto aqui...
+          {content}
         </TextContainer>
       </TextContainerWrapper>
     </div>
