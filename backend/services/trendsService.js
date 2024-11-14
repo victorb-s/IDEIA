@@ -42,12 +42,21 @@ const fetchGoogleTrends = async () => {
 const processTrendingTopics = async (trendingTopics, category, transactionClient) => {
   for (const topic of trendingTopics) {
     const title = topic.title.query;
-    const formatted_traffic = topic.formattedTraffic || 0;
+    const formatted_traffic = topic.formattedTraffic || '0'; 
     const time_ago = topic.articles.length > 0 ? topic.articles[0].timeAgo : 'Desconhecido';
 
     if (title) {
       try {
-        await trendsRepository.create({ title, category, formatted_traffic, time_ago }, transactionClient);
+        const parsedTraffic = parseVolume(formatted_traffic); 
+        console.log("Parsed Traffic:", parsedTraffic); 
+
+        await trendsRepository.create({
+          title,
+          category,
+          formatted_traffic: formatted_traffic,  
+          parsed_traffic: parsedTraffic,       
+          time_ago
+        }, transactionClient);
       } catch (insertError) {
         console.error('Erro ao inserir trend:', insertError);
       }
@@ -57,6 +66,51 @@ const processTrendingTopics = async (trendingTopics, category, transactionClient
   }
 };
 
+function parseVolume(volumeString) {
+  let cleanString = volumeString.replace('+ de', '').trim().toLowerCase();
+  cleanString = cleanString.replace(/\s+/g, ' ');
+
+  const part = cleanString.split(" ");
+
+  number = part[0];
+  unit = part[1];
+
+  const numericValue = parseInt(number);
+  if (isNaN(numericValue)) {
+    console.warn("Número inválido:", number);
+    return 0;
+  }
+
+  switch (unit) {
+    case 'mil':
+      return numericValue * 1000;
+    case 'mi':  
+    case 'milhões':
+      return numericValue * 1000000;
+    default:
+      console.warn("Unidade não reconhecida:", unit);
+      return numericValue;
+  }
+}
+
+function parseTimeAgo(timeAgoString) {
+  const [value, unit] = timeAgoString.split(' ');
+  const numericValue = parseInt(value);
+
+  switch (unit) {
+    case 'dias':
+    case 'dia':
+      return numericValue * 1440; // dia = 1440 minutos
+    case 'horas':
+    case 'hora':
+      return numericValue * 60; // hora
+    case 'minutos':
+    case 'minuto':
+      return numericValue; // minuto
+    default:
+      return 0; 
+  }
+}
 
 const getTrendsGroupedByCategory = async ({ category, offset, limit, sortBy, order }) => {
   try {
@@ -64,10 +118,28 @@ const getTrendsGroupedByCategory = async ({ category, offset, limit, sortBy, ord
       category, offset, limit, sortBy, order
     });
 
-    const filteredTrends = trends.filter(trend => trend.category === category);
+    const filteredTrends = (Array.isArray(trends) ? trends : [])
+    .filter(trend => trend.category === category)
+    .sort((a,b) => {
+      let fieldA, fieldB;
+
+      if (sortBy === 'formatted_traffic') {
+        fieldA = parseVolume(a.formatted_traffic);
+        fieldB = parseVolume(b.formatted_traffic);
+      } else if (sortBy === 'time_ago') {
+        fieldA = parseTimeAgo(a.time_ago);
+        fieldB = parseTimeAgo(b.time_ago);
+      } else {
+        fieldA = a[sortBy];
+        fieldB = b[sortBy];
+      }
+
+      if (order === 'asc') return fieldA - fieldB;
+      else return fieldB - fieldA;
+    });
 
     return {
-      trends: filteredTrends,
+      trends: filteredTrends.slice(offset, offset + limit),
       totalCount,
       totalPages
     };
