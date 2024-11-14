@@ -1,40 +1,44 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProjNavContainer = styled.nav`
-    width: 100%;
-    height: 4vh;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 4vh;
 
-    border-bottom: solid 1px rgba(0,0,0,0.1);
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+`;
 
 export const Input = styled.div`
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.7);
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
 
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    color: rgba(0,0,0,0.7);
-
-    & input{
-        border: none;
-        font-size: 18px;
+  & input {
+    border: none;
+    font-size: 1rem;
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
     }
-    & input:focus{
-        outline: none;
-    }
-    
-`
+  }
+  & input:focus {
+    outline: none;
+  }
+`;
 
 export const ControlsContainer = styled.div`
-    display:flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 
-    & button{
-        all: unset;
-        font-size: 18px;
-        cursor: pointer;
-    }
-`
+  & button {
+    all: unset;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+`;
