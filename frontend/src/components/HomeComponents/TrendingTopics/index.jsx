@@ -86,7 +86,7 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
           isSelected={categoria === "US"}
           onClick={() => handleCategoryChange("US")}
         >
-          MUNDIAL
+          MUNDO
         </CategoriaButton>
       </div>
       <Topicos>
@@ -96,7 +96,7 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
               Tendências
               <FontAwesomeIcon
                 icon={faSort}
-                style={{ cursor: "pointer", marginLeft: "10px" }}
+                className="sortIcon"
                 onClick={() => handleOrder("title")}
               />
             </TableHeader>
@@ -104,15 +104,15 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
               Volume de pesquisa
               <FontAwesomeIcon
                 icon={faSort}
-                style={{ cursor: "pointer", marginLeft: "10px" }}
+                className="sortIcon"
                 onClick={() => handleOrder("formatted_traffic")}
               />
             </TableHeader>
-            <TableHeader>
+            <TableHeader className="esconderMobile">
               Iniciado
               <FontAwesomeIcon
                 icon={faSort}
-                style={{ cursor: "pointer", marginLeft: "10px" }}
+                className="sortIcon"
                 onClick={() => handleOrder("time_ago")}
               />
             </TableHeader>
@@ -123,7 +123,7 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
             <TableRow key={index}>
               <TableCell>{topic.title}</TableCell>
               <TableCell>{topic.formatted_traffic}</TableCell>
-              <TableCell>{topic.time_ago}</TableCell>
+              <TableCell className="esconderMobile">{topic.time_ago}</TableCell>
               <TableCell>
                 <FontAwesomeIcon
                   icon={faEdit}
