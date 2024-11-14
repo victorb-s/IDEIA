@@ -57,7 +57,7 @@ export const HeaderRed = () => {
 }
 
 // eslint-disable-next-line react/prop-types
-export const HeaderBlue = ({ title }) => {
+export const HeaderBlue = ({ titleHeader }) => {
   return (
     <HeaderContainerB>
       <ContainerLeft>
@@ -65,8 +65,8 @@ export const HeaderBlue = ({ title }) => {
           <img src={HeaderBLogo} alt="Logo Header SJCC" className="headerLogo"/>
         </Link>
         <TituloContainer>
-          {title ? (
-            <p>{title}</p>
+          {titleHeader ? (
+            <p>{titleHeader}</p>
           ) : "Título da sua notícia"}
         </TituloContainer>
       </ContainerLeft>

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import {
   FaBold,
@@ -146,7 +146,8 @@ const TextContainer = styled.div`
   }
 `;
 
-const Toolbar = ({content}) => {
+// eslint-disable-next-line react/prop-types
+const Toolbar = ({ content }) => {
   const [textStyles, setTextStyles] = useState({
     fontFamily: 'Roboto',
     fontSize: 16,

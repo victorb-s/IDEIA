@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { HeaderBlue } from '../../components/Header'
 import Toolbar from './toolbar.jsx'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { api } from '../../services/app';
 
@@ -20,17 +20,18 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line no-unused-vars, react/prop-types
-const Redacao = ({ title }) => {
-  const [content, setContent] = useState([]);
+const Redacao = ({ titleHeader }) => {
+  const [content, setContent] = useState({});
 
   const fetchData = async () => {
     try {
-      const response = await api.get(`/v1/title/generate-summary?topics=${title}`);
+      const response = await api.get(`/v1/title/generate-summary?title=${titleHeader}`);
+      console.log(response.data);
       setContent(response.data);
     } catch (error) {
       console.error(error);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
   
@@ -39,10 +40,10 @@ const Redacao = ({ title }) => {
   }, []);
   
   return (<>
-    <HeaderBlue title={title}/>
+    <HeaderBlue titleHeader={titleHeader}/>
     <Container>
       <GlobalStyle/>
-      <Toolbar content={content}/>
+      <Toolbar content={content?.summary || ''}/>
     </Container>
   </>);
 }
