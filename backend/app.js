@@ -4,6 +4,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 const trendsRoutes = require('./routes/trendsRoutes');
 const titleRoutes = require('./routes/titleRoutes');
+const resumeRoutes = require('./routes/resumeRoutes');
 const { fetchGoogleTrends } = require('./services/trendsService');
 
 const app = express();
@@ -48,6 +49,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/trends', trendsRoutes);
 app.use('/api/v1/title', titleRoutes);
+app.use('/api/v1/resume', resumeRoutes);
 
 app.listen(PORT, async () => {
   console.log(`Servidor rodando na porta ${PORT}`);
