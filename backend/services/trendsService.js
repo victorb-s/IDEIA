@@ -47,7 +47,7 @@ const processTrendingTopics = async (trendingTopics, category, transactionClient
 
     if (title) {
       try {
-        const parsedTraffic = parseVolume(formatted_traffic); 
+        const parsedTraffic = parseFormattedTraffic(formatted_traffic); 
         console.log("Parsed Traffic:", parsedTraffic); 
 
         await trendsRepository.create({
@@ -66,7 +66,7 @@ const processTrendingTopics = async (trendingTopics, category, transactionClient
   }
 };
 
-function parseVolume(volumeString) {
+function parseFormattedTraffic(volumeString) {
   let cleanString = volumeString.replace('+ de', '').trim().toLowerCase();
   cleanString = cleanString.replace(/\s+/g, ' ');
 
@@ -114,18 +114,18 @@ function parseTimeAgo(timeAgoString) {
 
 const getTrendsGroupedByCategory = async ({ category, offset, limit, sortBy, order }) => {
   try {
-    const { trends, totalCount, totalPages } = await trendsRepository.findAll({
-      category, offset, limit, sortBy, order
+    const { trends, totalCount } = await trendsRepository.findAll({
+      category, sortBy, order
     });
 
-    const filteredTrends = (Array.isArray(trends) ? trends : [])
+    const filteredTrends = (Array.isArray(trends) ? trends: [])
     .filter(trend => trend.category === category)
     .sort((a,b) => {
       let fieldA, fieldB;
 
       if (sortBy === 'formatted_traffic') {
-        fieldA = parseVolume(a.formatted_traffic);
-        fieldB = parseVolume(b.formatted_traffic);
+        fieldA = parseFormattedTraffic(a.formatted_traffic);
+        fieldB = parseFormattedTraffic(b.formatted_traffic);
       } else if (sortBy === 'time_ago') {
         fieldA = parseTimeAgo(a.time_ago);
         fieldB = parseTimeAgo(b.time_ago);
@@ -134,12 +134,16 @@ const getTrendsGroupedByCategory = async ({ category, offset, limit, sortBy, ord
         fieldB = b[sortBy];
       }
 
-      if (order === 'asc') return fieldA - fieldB;
-      else return fieldB - fieldA;
+      if (order === 'asc') return fieldA > fieldB ? 1 : -1;
+      else return fieldA < fieldB ? 1 : -1;
     });
+    
+    const paginatedTrends = filteredTrends.slice(offset, offset + limit);
+
+    const totalPages = Math.ceil(totalCount / limit);
 
     return {
-      trends: filteredTrends.slice(offset, offset + limit),
+      trends: paginatedTrends,
       totalCount,
       totalPages
     };
