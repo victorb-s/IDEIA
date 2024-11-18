@@ -35,6 +35,7 @@ const Container = styled.div`
 // eslint-disable-next-line no-unused-vars, react/prop-types
 const Redacao = ({ titleHeader }) => {
   const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -44,7 +45,7 @@ const Redacao = ({ titleHeader }) => {
     } catch (error) {
       console.error(error);
     } finally {
-      // setLoading(false);
+      setLoading(false);
     }
   };
   
@@ -56,7 +57,7 @@ const Redacao = ({ titleHeader }) => {
     <HeaderBlue titleHeader={titleHeader}/>
     <Container>
       <GlobalStyle/>
-      <Toolbar content={content?.summary || ''}/>
+      <Toolbar content={content.summary} loading={loading}/>
     </Container>
   </>);
 }

@@ -13,6 +13,9 @@ import {
 } from 'react-icons/fa';
 import { BiMinus, BiPlus, BiImage, BiPalette } from 'react-icons/bi';
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const ToolbarContainer = styled.div`
   display: flex;
   flex-wrap: wrap; /* Permite que os itens quebrem linha em dispositivos móveis */
@@ -146,8 +149,16 @@ const TextContainer = styled.div`
   }
 `;
 
+const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+`;
+
 // eslint-disable-next-line react/prop-types
-const Toolbar = ({ content }) => {
+const Toolbar = ({ content, loading }) => {
   const [textStyles, setTextStyles] = useState({
     fontFamily: 'Roboto',
     fontSize: 16,
@@ -288,7 +299,19 @@ const Toolbar = ({ content }) => {
           ref={textRef}
           {...textStyles}
         >
-          {content}
+          <>
+            {loading ? (
+              <LoadingContainer>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <div key={index} style={{ margin: "10px 0" }}>
+                    <Skeleton height={30} width="100%" />
+                  </div>
+                ))}
+              </LoadingContainer>
+            ) : (<>
+              {content}
+            </>)}
+          </>
         </TextContainer>
       </TextContainerWrapper>
     </div>
