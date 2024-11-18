@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import { motion } from 'motion/react';
 
 import RainbowSide from '../../../assets/JCRainbow.svg';
 
@@ -15,7 +16,7 @@ const ResponsiveContainer = css`
     }
 `
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     height: 90vh;
     width: 100vw;
     max-width: 100%;

@@ -20,17 +20,33 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { api } from "../../../services/app";
 
+const RowVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeInOut",
+    },
+  },
+};
+
+// eslint-disable-next-line react/prop-types
 const TrendingTopics = ({ id, handleSelectTopic }) => {
   const [topics, setTopics] = useState([]);
   const [categoria, setCategoria] = useState("BR");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  // eslint-disable-next-line no-unused-vars
   const [limit, setLimit] = useState(10);
   const [sortField, setSortField] = useState("title");
   const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     fetchTopics();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoria, page, limit, sortField, sortOrder]);
 
   const fetchTopics = async () => {
@@ -91,7 +107,12 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
       </div>
       <Topicos>
         <thead>
-          <TableRow>
+          <TableRow
+            variants={RowVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
             <TableHeader>
               Tendências
               <FontAwesomeIcon
@@ -120,7 +141,13 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
         </thead>
         <tbody>
           {topics.map((topic, index) => (
-            <TableRow key={index}>
+            <TableRow
+              key={index}
+              variants={RowVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+            >
               <TableCell>{topic.title}</TableCell>
               <TableCell>{topic.formatted_traffic}</TableCell>
               <TableCell className="esconderMobile">{topic.time_ago}</TableCell>

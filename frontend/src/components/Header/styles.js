@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Link } from "react-router-dom"
+import { motion } from 'motion/react'
 
 const ResponsiveHamburguer = css`
     @media (min-width: 769px){
@@ -9,7 +10,7 @@ const ResponsiveHamburguer = css`
     }
 `
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled(motion.header)`
     width: 100%;
     height: 8vh;
 
@@ -46,7 +47,7 @@ export const HeaderContainer = styled.header`
     ${ResponsiveHamburguer}
 `
 
-export const HeaderContainerB = styled.header`
+export const HeaderContainerB = styled(motion.header)`
     width: 100%;
     height: 8vh;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { motion } from 'motion/react';
 
 const esconder = css`
     @media (max-width: 480px) {
@@ -99,7 +100,7 @@ export const TableHeader = styled.th`
     }
 `;
 
-export const TableRow = styled.tr`
+export const TableRow = styled(motion.tr)`
     &:nth-child(even) {
         background-color: #f9f9f9;
     }

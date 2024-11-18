@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import {
   FaBold,
@@ -24,7 +24,7 @@ const ToolbarContainer = styled.div`
   gap: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
   margin: 0 auto 16px auto;
-  width: 90%;
+  width: 100%;
 
   /* Ajuste para telas menores */
   @media (max-width: 768px) {
@@ -129,7 +129,7 @@ const TextContainer = styled.div`
   ${({ isItalic }) => isItalic && 'font-style: italic;'}
   ${({ isUnderline }) => isUnderline && 'text-decoration: underline;'}
   height: 1095px;
-  width: 80%;
+  width: 100%;
   padding: 16px;
   background-color: #fff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);

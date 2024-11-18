@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import JCrainbow from "../../../assets/JC rainbow.svg";
 import ArrowUp from "../../../assets/arrow-up.svg";
+import { motion } from 'motion/react';
 
 const ResponsiveContainer = css`
     @media (max-width: 1024px) {
@@ -13,7 +14,7 @@ const ResponsiveContainer = css`
     }
 `
 
-export const GeneralContainer = styled.div`
+export const GeneralContainer = styled(motion.div)`
     display: flex;
     justify-content: end;
     
@@ -54,7 +55,7 @@ const ResponsiveForms = css`
     }
 `
 
-export const CategoryForms = styled.form`
+export const CategoryForms = styled(motion.form)`
     display: flex;
     width: 40vw;
     text-align: end;
