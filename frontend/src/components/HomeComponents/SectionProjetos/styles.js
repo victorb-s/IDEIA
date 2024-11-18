@@ -43,6 +43,7 @@ export const Card = styled.div`
   }
   @media (max-width: 425px) {
     max-width: 80%;
+    margin-bottom: 3vh;
   }
 `;
 
@@ -53,7 +54,7 @@ export const CardImg = styled.div`
     padding: 15px;
     background-color: #f5f5f5;
     font-weight: 600;
-    font-size: 12px;
+    font-size: clamp(0.6rem, 2vw, 0.8rem);
   }
 `;
 
@@ -64,13 +65,13 @@ export const CardInfos = styled.div`
   gap: 13px;
 
   h2 {
-    font-size: 12px;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
     color: #da251c;
     text-align: justify;
   }
 
   h1 {
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 2vw, 1rem);
     color: #333;
   }
 `;
