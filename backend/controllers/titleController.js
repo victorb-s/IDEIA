@@ -28,7 +28,32 @@ const generateSummary = async (req, res) => {
   }
 };
 
+const addContext = async (req, res) => {
+  try {
+    const { topic } = req.query;
+    const { category, additionalInfo, audience, tone } = req.body;
+
+    if (!topic) {
+      return res.status(400).json({ error: 'Parâmetro "topic" é obrigatório' });
+    }
+
+    const context = {
+      category,
+      audience,
+      tone,
+      additionalInfo,
+    };
+
+    const detailedTopic = await titleService.addContextToTopic(topic, context);
+    res.status(200).json({ detailedTopic });
+  } catch (error) {
+    console.error('Erro ao adicionar contexto ao tópico:', error);
+    res.status(500).json({ error: 'Falha ao adicionar contexto' });
+  }
+};
+
 module.exports = {
   generateTitle,
   generateSummary,
+  addContext,
 };

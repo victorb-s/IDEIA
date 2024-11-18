@@ -77,4 +77,60 @@ router.get('/generate', titleController.generateTitle);
  */
 router.get('/generate-summary', titleController.generateSummary);
 
+/**
+ * @swagger
+ * /api/v1/title/add-context:
+ *   post:
+ *     tags: [Titles]
+ *     summary: Adiciona contexto ao tópico
+ *     description: Retorna um tópico mais detalhado com base no contexto adicional fornecido pelo usuário.
+ *     parameters:
+ *       - in: query
+ *         name: topic
+ *         required: true
+ *         description: O tópico base para o qual o contexto será adicionado.
+ *         schema:
+ *           type: string
+ *           example: "Barcelona"
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               category:
+ *                 type: string
+ *                 description: Categoria do tópico.
+ *                 example: "Esportes"
+ *               audience:
+ *                 type: string
+ *                 description: Público-alvo para o tópico.
+ *                 example: "Fãs de esportes"
+ *               tone:
+ *                 type: string
+ *                 description: Tom desejado para o tópico.
+ *                 example: "Informal"
+ *               additionalInfo:
+ *                 type: string
+ *                 description: Informações adicionais sobre o tópico.
+ *                 example: "O time de futebol da Espanha"
+ *     responses:
+ *       200:
+ *         description: Contexto adicionado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 detailedTopic:
+ *                   type: string
+ *                   example: "Um tópico detalhado"
+ *       400:
+ *         description: Parâmetro "topic" é obrigatório
+ *       500:
+ *         description: Erro ao adicionar o contexto
+ */
+router.post('/add-context', titleController.addContext);
+
 module.exports = router;

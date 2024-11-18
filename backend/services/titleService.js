@@ -60,7 +60,51 @@ async function generateSummary(selectedTitle) {
   }
 }
 
+async function addContextToTopic(topic, context = {}) {
+  try {
+    const { category, audience, tone, additionalInfo } = context;
+
+    let contextualPrompt = `Você é um assistente útil para escritores jornalísticos. Sua tarefa é enriquecer o tópico fornecido com base nas informações adicionais. Seja claro e objetivo, criando um tópico detalhado que saiba sobre as informações abaixo, se disponíveis:`;
+
+    if (category) {
+      contextualPrompt += `\n- Categoria: ${category}`;
+    }
+    if (audience) {
+      contextualPrompt += `\n- Público-alvo: ${audience}`;
+    }
+    if (tone) {
+      contextualPrompt += `\n- Tom desejado: ${tone}`;
+    }
+    if (additionalInfo) {
+      contextualPrompt += `\n- Descrição adicional: ${additionalInfo}`;
+    }
+
+    contextualPrompt += `\nUse o tópico original para basear o novo tópico. O novo texto precisa parecer um tópico, ou seja, ele deve passar todas as informações necessárias, tendo no máximo 5 palavras e deve conter o tópico passado inicialmente nele. Gere apenas uma resposta, um tópico, no idioma português do Brasil e mantenha-a concisa.`;
+
+    const model = genAI.getGenerativeModel({
+      model: 'gemini-1.5-flash',
+      systemInstruction: contextualPrompt,
+    });
+
+    const chat = model.startChat({
+      generationConfig: generationConfig,
+      history: [],
+    });
+
+    const result = await chat.sendMessage(topic);
+    const detailedTopic = await result.response.text();
+    console.log(`Tópico detalhado: ${detailedTopic}`);
+
+    return detailedTopic.trim();
+
+  } catch (error) {
+    console.error('Erro ao adicionar contexto ao tópico:', error);
+    throw error;
+  }
+}
+
 module.exports = {
   generateTitles,
   generateSummary,
+  addContextToTopic,
 };
