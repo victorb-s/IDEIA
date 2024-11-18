@@ -6,8 +6,8 @@ import styled from "styled-components";
 const Container = styled.div`
   text-align: center;
   font-family: 'Roboto', sans-serif;
-  height: 72vh;
-  overflow-y: hidden;
+  min-height: 72vh;
+  overflow-y: auto;
 `;
 
 // eslint-disable-next-line react/prop-types
