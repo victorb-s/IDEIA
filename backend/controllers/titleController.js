@@ -14,6 +14,46 @@ const generateTitle = async (req, res) => {
   }
 };
 
+const generateSummary = async (req, res) => {
+  try {
+    const { title } = req.query;
+    if (!title) {
+      return res.status(400).json({ error: 'Parâmetro "title" é obrigatório' });
+    }
+    const summary = await titleService.generateSummary(title);
+    res.status(200).json({ summary });
+  } catch (error) {
+    console.error('Erro ao gerar resumo:', error);
+    res.status(500).json({ error: 'Falha ao gerar resumo' });
+  }
+};
+
+const addContext = async (req, res) => {
+  try {
+    const { topic } = req.query;
+    const { category, additionalInfo, audience, tone } = req.body;
+
+    if (!topic) {
+      return res.status(400).json({ error: 'Parâmetro "topic" é obrigatório' });
+    }
+
+    const context = {
+      category,
+      audience,
+      tone,
+      additionalInfo,
+    };
+
+    const detailedTopic = await titleService.addContextToTopic(topic, context);
+    res.status(200).json({ detailedTopic });
+  } catch (error) {
+    console.error('Erro ao adicionar contexto ao tópico:', error);
+    res.status(500).json({ error: 'Falha ao adicionar contexto' });
+  }
+};
+
 module.exports = {
-  generateTitle
+  generateTitle,
+  generateSummary,
+  addContext,
 };

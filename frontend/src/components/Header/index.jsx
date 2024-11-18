@@ -100,7 +100,7 @@ export const HeaderRed = () => {
 }
 
 // eslint-disable-next-line react/prop-types
-export const HeaderBlue = ({ title }) => {
+export const HeaderBlue = ({ titleHeader }) => {
   return (
     <HeaderContainerB
       variants={HeaderVariants}
@@ -117,8 +117,8 @@ export const HeaderBlue = ({ title }) => {
           />
         </Link>
         <TituloContainer>
-          {title ? (
-            <p>{title}</p>
+          {titleHeader ? (
+            <p>{titleHeader}</p>
           ) : "Título da sua notícia"}
         </TituloContainer>
       </ContainerLeft>

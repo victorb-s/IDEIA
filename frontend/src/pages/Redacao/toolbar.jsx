@@ -146,7 +146,8 @@ const TextContainer = styled.div`
   }
 `;
 
-const Toolbar = () => {
+// eslint-disable-next-line react/prop-types
+const Toolbar = ({ content }) => {
   const [textStyles, setTextStyles] = useState({
     fontFamily: 'Roboto',
     fontSize: 16,
@@ -287,7 +288,7 @@ const Toolbar = () => {
           ref={textRef}
           {...textStyles}
         >
-          Digite seu texto aqui...
+          {content}
         </TextContainer>
       </TextContainerWrapper>
     </div>

@@ -27,7 +27,7 @@ const App = () => {
       <Route path='/' element={<Home handleSelectTopic={handleSelectTopic}/>}/>
       <Route path='/informacoes' element={<Informacao/>}></Route>
       <Route path='/sugestoes' element={<Sugestoes topic={topic} handleSelectTitle={handleSelectTitle}/>}></Route>
-      <Route path='/redacao' element={<Redacao title={title}/>}></Route>
+      <Route path='/redacao' element={<Redacao titleHeader={title}/>}></Route>
     </Routes>
   </>)
 }

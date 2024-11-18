@@ -1,6 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { HeaderBlue } from '../../components/Header'
 import Toolbar from './toolbar.jsx'
+import { useState, useEffect } from 'react';
+
+import { api } from '../../services/app';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -29,31 +32,31 @@ const Container = styled.div`
   // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-// const TitleInput = styled.input`
-//   width: 100%;
-//   font-size: 24px;
-//   font-weight: bold;
-//   border: none;
-//   outline: none;
-// `;
-
-// const TextArea = styled.textarea`
-//   width: 100%;
-//   height: 300px;
-//   margin-top: 10px;
-//   padding: 10px;
-//   font-size: 16px;
-//   border: 1px solid #ddd;
-//   resize: none;
-// `;
-
 // eslint-disable-next-line no-unused-vars, react/prop-types
-const Redacao = ({ title, content }) => {
+const Redacao = ({ titleHeader }) => {
+  const [content, setContent] = useState({});
+
+  const fetchData = async () => {
+    try {
+      const response = await api.get(`/v1/title/generate-summary?title=${titleHeader}`);
+      console.log(response.data);
+      setContent(response.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // setLoading(false);
+    }
+  };
+  
+  useEffect(() => {
+      fetchData();
+  }, []);
+  
   return (<>
-    <HeaderBlue title={title}/>
+    <HeaderBlue titleHeader={titleHeader}/>
     <Container>
       <GlobalStyle/>
-      <Toolbar/>  
+      <Toolbar content={content?.summary || ''}/>
     </Container>
   </>);
 }
