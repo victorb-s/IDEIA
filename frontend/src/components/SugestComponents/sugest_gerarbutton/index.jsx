@@ -1,7 +1,9 @@
 import { Button } from "./styles";
 
-function GerarBotao() {
-  return <Button>+ Gerar outra opção</Button>;
-}
+function GerarBotao({func}) {
+  return <Button onClick={func}>      
+    Gerar Novamente
+  </Button>
+};
 
 export default GerarBotao;

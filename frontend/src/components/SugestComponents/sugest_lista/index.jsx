@@ -30,6 +30,14 @@ function SugestaoLista({ topic, handleSelectTitle }) {
       fetchData();
   }, []);
 
+  const handleGenerateClick = () => {
+    console.log('Botão clicado');
+    setSugestoes([]);
+    setLoading(true);
+    fetchData();
+  } 
+
+
   return (
     <ListaContainer>
       <NavBotao />
@@ -47,7 +55,7 @@ function SugestaoLista({ topic, handleSelectTitle }) {
           <Sugestaoitem key={index} text={title.title} handleSelectTitle={handleSelectTitle}/>
         ))
       )}
-      <GerarBotao />
+      <GerarBotao func={handleGenerateClick}/>
 
       <LinkContext
         text="Não encontrou o que procura?"
