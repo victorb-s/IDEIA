@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Sugestaoitem from "../sugest_itens/index";
 import NavBotao from "../sugest_navbutton/index";
 import GerarBotao from "../sugest_gerarbutton";
+import LinkContext from "../sugest_contexto/";
 import { ListaContainer, LoadingContainer, TituloLista } from "./styles";
 
 import { api } from '../../../services/app';
@@ -47,6 +48,10 @@ function SugestaoLista({ topic, handleSelectTitle }) {
         ))
       )}
       <GerarBotao />
+
+      <LinkContext
+        text="Não encontrou o que procura?"
+      />
     </ListaContainer>
   );
 }
