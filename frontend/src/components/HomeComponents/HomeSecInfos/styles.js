@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import JCrainbow from "../../../assets/JC rainbow.svg";
+import JCrainbow from "../../../assets/JCRainbow.svg";
 import ArrowUp from "../../../assets/arrow-up.svg";
 import { motion } from 'motion/react';
 
