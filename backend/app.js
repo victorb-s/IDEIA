@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || origin.startsWith("http://localhost") || origin.startsWith(process.env.BASE_URL)) {
+    if (!origin || origin.startsWith("http://localhost") || origin.startsWith(process.env.VITE_API_URL)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -31,7 +31,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.BASE_URL || `http://localhost:${PORT}`,
+        url: process.env.VITE_API_URL || `http://localhost:${PORT}`,
       },
     ],
   },
@@ -40,7 +40,7 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/api/v1/trends', trendsRoutes);
 app.use('/api/v1/title', titleRoutes);
 
