@@ -22,7 +22,7 @@ export const NavContainer = styled.div`
   width: 93%;
   top: -20px;
   @media (max-width: 1024px) {
-    top: 0px;
+    top: -20px;
   }
 `;
 
