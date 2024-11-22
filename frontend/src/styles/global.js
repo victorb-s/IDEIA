@@ -2,39 +2,52 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root{
-        --cor-01: ${(props) => props.theme.cor1};
-        --cor-02: ${(props) => props.theme.cor2};
-        --cor-03: ${(props) => props.theme.cor3};
-        --cor-04: ${(props) => props.theme.cor4};
+        --cor-01: ${(props) => props.theme.colors.cor1};
+        --cor-02: ${(props) => props.theme.colors.cor2};
+        --cor-03: ${(props) => props.theme.colors.cor3};
+        --cor-04: ${(props) => props.theme.colors.cor4};
 
-        --cor-01escuro: ${(props) => props.theme.cor1escuro};
-        --cor-02escuro: ${(props) => props.theme.cor2escuro};
-        --cor-03escuro: ${(props) => props.theme.cor3escuro};
+        --cor-01escuro: ${(props) => props.theme.colors.cor1escuro};
+        --cor-02escuro: ${(props) => props.theme.colors.cor2escuro};
+        --cor-03escuro: ${(props) => props.theme.colors.cor3escuro};
 
+        --backgroundColor: ${(props) => props.theme.colors.backgroundColor};
+        --backgroundColor2: ${(props) => props.theme.colors.backgroundColor2};
+        --backgroundColor3: ${(props) => props.theme.colors.backgroundColor3};
+
+        --titleColor: ${(props) => props.theme.colors.titleColor};
+        --textColor: ${(props) => props.theme.colors.textColor};
+
+        --buttonColor: ${(props) => props.theme.colors.buttonColor};
+        --buttonOutlineColor: ${(props) => props.theme.colors.buttonOutlineColor};
+        --buttonArrowCircleColor: ${(props) => props.theme.colors.buttonArrowCircleColor};
+        --buttonTextColor: ${(props) => props.theme.colors.buttonTextColor};
+
+        --formBackgroundColor: ${(props) => props.theme.colors.formBackgroundColor};
+        --formOutlineColor: ${(props) => props.theme.colors.formOutlineColor};
+
+        --trendingDivider: ${(props) => props.theme.colors.trendingDivider};    
+
+        --navLinkColor: ${(props) => props.theme.colors.navLinkColor};
+        --navLinkColorHover: ${(props) => props.theme.colors.navLinkColorHover};
         
-        --backgroundColor: ${(props) => props.theme.backgroundColor};
-        --backgroundColor2: ${(props) => props.theme.backgroundColor2};
+        --blueHeaderIcons: ${(props) => props.theme.colors.blueHeaderIcons};
+        --blueSectionText: ${(props) => props.theme.colors.blueSectionText};
+        --blueSectionTextHover: ${(props) => props.theme.colors.blueSectionTextHover};
+        --blueHeaderTitleContainer: ${(props) => props.theme.colors.blueHeaderTitleContainer};
 
-        --titleColor: ${(props) => props.theme.titleColor};
-        --textColor: ${(props) => props.theme.textColor};
+        --lineColor: ${(props) => props.theme.colors.lineColor};
+        --headerLineColor: ${(props) => props.theme.colors.headerLineColor};
+        --blueSectionLineColor: ${(props) => props.theme.colors.blueSectionLineColor};
 
-        --buttonColor: ${(props) => props.theme.buttonColor};
-        --buttonOutlineColor: ${(props) => props.theme.buttonOutlineColor};
-        --buttonArrowCircleColor: ${(props) => props.theme.buttonArrowCircleColor};
-        --buttonTextColor: ${(props) => props.theme.buttonTextColor};
+        --footerColor: ${(props) => props.theme.colors.footerColor};
+        --footerIconsColor: ${(props) => props.theme.colors.footerIconsColor};
+        --footerSpanColor: ${(props) => props.theme.colors.footerSpanColor};
 
-        --trendingDivider: ${(props) => props.theme.trendingDivider};
+        --toolbarColor: ${(props) => props.theme.colors.toolbarColor};
+        --toolbarColorHover: ${(props) => props.theme.colors.toolbarColorHover};
 
-        --navLinkColor: ${(props) => props.theme.navLinkColor};
-
-        --lineColor: ${(props) => props.theme.lineColor};
-
-        --headerLineColor: ${(props) => props.theme.headerLineColor};
-
-        --footerColor: ${(props) => props.theme.footerColor};
-        --footerIconsColor: ${(props) => props.theme.footerIconsColor};
-        --footerSpanColor: ${(props) => props.theme.footerSpanColor};
-
+        --togglerBackground: ${(props) => props.theme.colors.togglerBackground};
     }
 
     * {

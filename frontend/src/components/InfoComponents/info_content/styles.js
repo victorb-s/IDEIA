@@ -27,10 +27,10 @@ export const NavContainer = styled.div`
 `;
 
 export const NavButton = styled(FontAwesomeIcon)`
-  background: #fff;
+  background: var(--backgroundColor);
   border-radius: 100%;
   border: none;
-  color: var(--cor-01);
+  color: var(--titleColor);
   font-size: 18px;
   cursor: pointer;
   padding: 10px;
@@ -46,7 +46,7 @@ export const Card = styled.form`
   flex-direction: column;
   justify-content: center;
   width: 768px;
-  background-color: #ffffff;
+  background-color: var(--backgroundColor);
   padding: 28px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -55,9 +55,9 @@ export const Card = styled.form`
     font-size: 24px;
     height: 66px;
     @media (max-width: 1024px) {
-    font-size: 21px;
-    height: 50px;
-  }
+      font-size: 21px;
+      height: 50px;
+    }
   }
 
   @media (max-width: 1024px) {
@@ -79,18 +79,22 @@ export const Input = styled.input`
   display: flex;
   flex-grow: 1;
   border: none;
-  background: #f2f6f9;
+  background: var(--formBackgroundColor);
   font-size: 18px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
   height: 50px;
   padding: 0 16px;
-  outline: 1px solid #27669c;
+  outline: 1px solid var(--formOutlineColor);
 
+  &::placeholder {
+    color: var(--buttonTextColor);
+    opacity: 0.6;
+  }
   &:placeholder-shown {
     outline: none;
   }
-  color: #27669c;
+  color: var(--buttonTextColor);
 
   &:focus {
     outline: none;
@@ -106,15 +110,19 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   width: 100%;
   min-height: 130px;
-  background-color: #f2f6f9;
+  background-color: var(--formBackgroundColor);
 
-  color: #27669c;
+  color: var(--buttonTextColor);
   border: none;
   border-radius: 5px;
   padding: 10px 16px;
   font-size: 18px;
   resize: none;
-  outline: 1px solid #27669c;
+  outline: 1px solid var(--formOutlineColor);
+  &::placeholder {
+    color: var(--buttonTextColor);
+    opacity: 0.6;
+  }
   &:placeholder-shown {
     outline: none;
   }
@@ -133,15 +141,15 @@ export const Button = styled.button`
   align-self: flex-end;
   width: 33%;
   height: 50px;
-  background-color: #fff;
-  color: #27669c;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
   font-size: 18px;
-  border: 1px solid #81a5c5;
+  border: 1px solid var(--buttonOutlineColor);
   border-radius: 30px;
   cursor: pointer;
   padding-left: 22px;
   @media (max-width: 1024px) {
-    width: 40%
+    width: 40%;
   }
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -154,7 +162,7 @@ export const Button = styled.button`
 `;
 
 export const ArrowCircle = styled.div`
-  background: #034c8c20;
+  background: var(--buttonArrowCircleColor);
   border-radius: 50%;
 
   display: flex;
@@ -164,7 +172,6 @@ export const ArrowCircle = styled.div`
   aspect-ratio: 1 / 1;
   width: 48px;
   @media (max-width: 768px) {
-    
   }
   @media (max-width: 425px) {
     width: 36px;
@@ -172,7 +179,7 @@ export const ArrowCircle = styled.div`
 `;
 
 export const IconArrow = styled(FontAwesomeIcon)`
-  color: #034c8c;
+  color: var(--buttonTextColor);
   font-weight: bold;
   font-size: clamp(0.8rem, 2vw, 1.2rem);
 `;

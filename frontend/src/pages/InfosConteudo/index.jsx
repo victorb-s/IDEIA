@@ -2,9 +2,10 @@ import ContentEditor from "../../components/InfoComponents/info_content";
 import { HeaderRed } from "../../components/Header";
 import Footer from "../../components/Footer";
 
-const Informacao = () => {
+// eslint-disable-next-line react/prop-types
+const Informacao = ({toggleTheme}) => {
     return (<>
-      <HeaderRed />
+      <HeaderRed toggleTheme={toggleTheme}/>
       <ContentEditor />
       <Footer />
     </>)

@@ -11,9 +11,9 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const Sugestoes = ({ topic, handleSelectTitle }) => {
+const Sugestoes = ({ topic, handleSelectTitle, toggleTheme}) => {
     return (<>
-      <HeaderBlue />
+      <HeaderBlue toggleTheme={toggleTheme}/>
       <Container>
         <SugestaoLista topic={topic} handleSelectTitle={handleSelectTitle}/>
       </Container>

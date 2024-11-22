@@ -1,21 +1,26 @@
 import {
-  HeaderContainerB, 
-  HeaderContainer, 
+  HeaderContainerB,
+  HeaderContainer,
   ContainerLeft,
   TituloContainer,
   IconContainer,
-  NavContainer, 
-  NavLink
-} from "./styles"
-import HeaderLogo from '../../assets/logoHeaderSjcc.svg'
-import HeaderBLogo from '../../assets/logoSolSjcc.svg'
+  NavContainer,
+  NavLink,
+} from "./styles";
+import HeaderLogo from "../../assets/logoHeaderSjcc.svg";
+import HeaderBLogo from "../../assets/logoSolSjcc.svg";
+import DarkHeaderBLogo from "../../assets/DarkHeaderBLOGO.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { motion } from 'motion/react';
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
+
+import { motion } from "motion/react";
+import { ThemeToggler } from "../HeaderComponents/ThemeToggler";
 
 const HeaderVariants = {
   initial: {
@@ -26,13 +31,13 @@ const HeaderVariants = {
     opacity: 1,
     transition: {
       duration: 0.8,
-    }
-  }
-}
+    },
+  },
+};
 
 const ImgVariants = {
   initial: {
-    x: '-100vw',
+    x: "-100vw",
   },
 
   animate: {
@@ -45,11 +50,14 @@ const ImgVariants = {
       type: "spring",
       stiffness: 150,
       damping: 20,
-    }
-  }
-}
+    },
+  },
+};
 
-export const HeaderRed = () => {
+// eslint-disable-next-line react/prop-types
+export const HeaderRed = ({ toggleTheme }) => {
+  const { title } = useContext(ThemeContext);
+
   const [showMenu, setShowMenu] = useState(false);
   const location = useLocation();
 
@@ -78,29 +86,77 @@ export const HeaderRed = () => {
     >
       <Link to="/">
         <motion.img
-          src={HeaderLogo}
+          src={title === "dark" ? DarkHeaderBLogo : HeaderLogo}
           alt="Logo Header SJCC"
           variants={ImgVariants}
         />
       </Link>
-      {location.pathname === '/' && (<>
-        {showMenu ? (
-          <FontAwesomeIcon icon={faXmark} className="hambNav" onClick={toggleMenu}/>
-        ) : (
-          <FontAwesomeIcon icon={faBars} className="hambNav" onClick={toggleMenu}/>
-        )}    
-        <NavContainer className={showMenu ? "open" : ""}>
-          <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('inicio'); closeMenuOnMobile(); }}>Home</NavLink></li>
-          <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('trending'); closeMenuOnMobile(); }}>Em Alta</NavLink></li>
-          <li><NavLink to="/" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); closeMenuOnMobile(); }}>Meus Projetos</NavLink></li>
-        </NavContainer>
-      </>)}
+
+        <>
+          {showMenu ? (
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="hambNav"
+              onClick={toggleMenu}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faBars}
+              className="hambNav"
+              onClick={toggleMenu}
+            />
+          )}
+          <NavContainer className={showMenu ? "open" : ""}>
+      {location.pathname === "/" && (<>
+            <li>
+              <NavLink
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("inicio");
+                  closeMenuOnMobile();
+                }}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("trending");
+                  closeMenuOnMobile();
+                }}
+              >
+                Em Alta
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("projetos");
+                  closeMenuOnMobile();
+                }}
+              >
+                Meus Projetos
+              </NavLink>
+            </li>
+            </>
+          )}
+          <ThemeToggler toggleTheme={toggleTheme} />
+          </NavContainer>
+          </>
     </HeaderContainer>
-  )
-}
+  );
+};
 
 // eslint-disable-next-line react/prop-types
-export const HeaderBlue = ({ titleHeader }) => {
+export const HeaderBlue = ({ titleHeader, toggleTheme }) => {
+  const { title } = useContext(ThemeContext);
+
   return (
     <HeaderContainerB
       variants={HeaderVariants}
@@ -110,22 +166,21 @@ export const HeaderBlue = ({ titleHeader }) => {
       <ContainerLeft>
         <Link to="/">
           <motion.img
-           src={HeaderBLogo}
-           alt="Logo Header SJCC"
-           className="headerLogo"
-           variants={ImgVariants}
+            src={title === "dark" ? DarkHeaderBLogo : HeaderBLogo}
+            alt="Logo Header SJCC"
+            className="headerLogo"
+            variants={ImgVariants}
           />
         </Link>
         <TituloContainer>
-          {titleHeader ? (
-            <p>{titleHeader}</p>
-          ) : "Título da sua notícia"}
+          {titleHeader ? <p>{titleHeader}</p> : "Título da sua notícia"}
         </TituloContainer>
       </ContainerLeft>
 
       <IconContainer>
         <FontAwesomeIcon icon={faUser} />
+        <ThemeToggler toggleTheme={toggleTheme} />
       </IconContainer>
     </HeaderContainerB>
-  )
-}
+  );
+};

@@ -26,6 +26,7 @@
     "react-loading": "^2.0.3",
     "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^6.27.0",
+    "react-switch": "^7.0.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
