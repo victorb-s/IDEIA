@@ -1,5 +1,7 @@
-
 import { useState } from "react";
+import { useForm, Controller } from 'react-hook-form'
+import { useNavigate } from "react-router-dom";
+
 import {
   ArrowCircle,
   Button,
@@ -13,20 +15,22 @@ import {
   TextArea,
 } from "./styles";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function ContentEditor() {
-  const [contentTheme, setContentTheme] = useState(
-    /* vai receber o título como prop?? */ "Titulo Exemplo"
-  );
-  const [category, setCategory] = useState("");
-  const [targetAudience, setTargetAudience] = useState("");
-  const [tone, setTone] = useState("");
+// eslint-disable-next-line react/prop-types
+const ContentEditor = ({ topicPassed }) => {
+  const navigate = useNavigate()
+  const [contentTheme, setContentTheme] = useState(topicPassed);
+  const { control, handleSubmit } = useForm();
 
-  const [textAreaValue, setTextAreaValue] = useState("");
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate("/sugestoes", { state: { formData: data }})
+  }
 
   return (
     <Container>
@@ -34,38 +38,69 @@ export default function ContentEditor() {
         <NavButton icon={faChevronLeft} />
         <NavButton icon={faChevronRight} />
       </NavContainer>
-      <Card>
-        <Input
-          id="title"
-          value={contentTheme}
-          onChange={(e) => setContentTheme(e.target.value)}
-          placeholder="Tema do conteúdo"
+      <Card onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          name="topic"
+          control={control}
+          defaultValue={contentTheme || "Exemplo de Tópico"}
+          render={({ field }) => (
+            <Input
+              {...field}
+              placeholder="Tema do conteúdo"
+            />
+          )}
         />
 
         <InputWrapper>
-          <Input
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            placeholder="Categoria"
+          <Controller
+            name="category"
+            control={control}
+            defaultValue={""}
+            render={({ field }) => (
+              <Input
+                {...field}
+                placeholder="Categoria"
+              />
+            )}
           />
-          <Input
-            value={targetAudience}
-            onChange={(e) => setTargetAudience(e.target.value)}
-            placeholder="Audiência"
+
+          <Controller
+            name="audience"
+            control={control}
+            defaultValue={""}
+            render={({ field }) => (
+              <Input
+                {...field}
+                placeholder="Audiência"
+              />
+            )}
           />
         </InputWrapper>
 
-        <Input
-          value={tone}
-          onChange={(e) => setTone(e.target.value)}
-          placeholder="Tom desejado (coloquial, formal, etc...)"
+        <Controller
+          name="tone"
+          control={control}
+          defaultValue={""}
+          render={({ field }) => (
+            <Input
+              {...field}
+              placeholder="Tom"
+            />
+          )}
         />
 
-        <TextArea
-          value={textAreaValue}
-          onChange={(e) => setTextAreaValue(e.target.value)}
-          placeholder="Descrição sobre o contexto do tema e palavras chave."
+        <Controller
+          name="additionalInfo"
+          control={control}
+          defaultValue={""}
+          render={({ field }) => (
+            <TextArea
+              {...field}
+              placeholder="Descrição sobre o contexto do tema e palavras chave."
+            />
+          )}
         />
+
         <Button>
           Sugerir títulos
           <ArrowCircle>
@@ -76,3 +111,5 @@ export default function ContentEditor() {
     </Container>
   );
 }
+
+export default ContentEditor;
