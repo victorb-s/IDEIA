@@ -92,12 +92,18 @@ export const CategoryForms = styled(motion.form)`
 
     .submitInput {
         border: none;
-        background-image: url(${ArrowUp});
         width: 32px;
         height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: white;
+        background: transparent;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: #da251c;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover{
+            transform: scale(1.1);
+            color: #f1000e;
+        }
     }
 
     ${ResponsiveForms}

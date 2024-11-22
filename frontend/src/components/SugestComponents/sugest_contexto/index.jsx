@@ -1,9 +1,15 @@
 import { LinkContainer } from './styles'
 
 // eslint-disable-next-line react/prop-types
-const LinkContext = ({ text }) => {
+const LinkContext = ({ text, topic }) => {
+  console.log(topic);
   return (
-    <LinkContainer to="/informacoes">{text}</LinkContainer>
+    <LinkContainer
+      to="/informacoes"
+      state={{ topicPassed: topic }}
+    >
+      {text}
+    </LinkContainer>
   )
 }
 
