@@ -66,12 +66,13 @@ export const CategoryForms = styled(motion.form)`
 
     h1 {
         font-size: clamp(1.6rem, 4vw, 4rem);
-        color: #da251c;
+        color: var(--titleColor);
     }
 
     label {
         font-size: clamp(0.8rem, 2vw, 1.1rem);
         font-weight: 300;
+        color: var(--textColor);
     }
 
     .textInput {

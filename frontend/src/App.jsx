@@ -23,6 +23,7 @@ const App = () => {
   }
   
   return (<>
+   
     <Routes>
       <Route path='/' element={<Home handleSelectTopic={handleSelectTopic}/>}/>
       <Route path='/informacoes' element={<Informacao/>}></Route>

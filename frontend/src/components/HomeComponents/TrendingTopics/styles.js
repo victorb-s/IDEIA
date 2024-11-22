@@ -13,8 +13,8 @@ export const TopicosConteiner = styled.div`
     width: 88%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #DA251C;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--lineColor);
     border-radius: 10px;
 
     @media (max-width: 768px) {
@@ -36,7 +36,7 @@ export const Titulo = styled.div`
     align-items: center;
 
     h1 {
-    color: #DA251C;
+    color: var(--titleColor);
     font-size: clamp(1.1rem, 3vw, 2rem);
     margin-left: 10px;
     margin-bottom: 3vh;
@@ -46,7 +46,7 @@ export const Titulo = styled.div`
     height: 1px;
     width: 100%;
     max-width: 90%;
-    background-color: #DA251C;
+    background-color: var(--lineColor);
     margin-bottom: 3vh;
     }
 
@@ -85,11 +85,15 @@ export const Topicos = styled.table`
 
 export const TableHeader = styled.th`
     padding: 10px;
-    color: #da251c;
+    
+    min-width: 150px;
+
+    color: var(--lineColor);
     font-weight: bold;
     font-size: clamp(0.8rem, 2vw, 1.2rem);
-    border-bottom: 1px solid #ddd;
-    min-width: 150px;
+
+    border-bottom: 1px solid var(--lineColor);
+
 
     @media (max-width: 768px) {
         padding: 8px;
@@ -102,14 +106,14 @@ export const TableHeader = styled.th`
 
 export const TableRow = styled(motion.tr)`
     &:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: var(--backgroundColor2);
     }
 `;
 
 export const TableCell = styled.td`
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    color: #034C8C;
+    border-bottom: 1px solid var(--trendingDivider);
+    color: var(--buttonTextColor);
     max-width: 150px;
     word-wrap: break-word;
     white-space: normal;
@@ -133,12 +137,12 @@ export const PaginationContainer = styled.div`
 
 export const PaginationButton = styled.button`
     background: none;
-    border: 1px solid #DA251C;
+    border: 1px solid var(--lineColor);
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
     margin: 0 10px;
-    color: #DA251C;
+    color: var(--lineColor);
     font-size: clamp(0.5rem, 2vw, 1rem);
 
     &:disabled {
@@ -147,7 +151,7 @@ export const PaginationButton = styled.button`
     }
 
     &:hover {
-        background-color: #DA251C;
+        background-color: var(--lineColor);
         color: #fff;
     }
 
@@ -162,23 +166,23 @@ export const PaginationButton = styled.button`
 
 export const PaginationText = styled.span`
     font-size: clamp(0.6rem, 2vw, 1rem);
-    color: #034C8C;
+    color: var(--buttonTextColor);
 `;
 
 export const CategoriaButton = styled.button`
-    background-color: ${(props) => (props.isSelected ? "#DA251C" : "white")};
-    color: ${(props) => (props.isSelected ? "white" : "#DA251C")};
+    background-color: ${(props) => (props.isSelected ? "var(--lineColor)" : "var(--backgroundColor)")};
+    color: ${(props) => (props.isSelected ? "white" : "var(--titleColor)")};
     padding: 5px 25px;
     border-radius: 5px;
     margin: 10px 10px;
     font-size: clamp(0.6rem, 1.5vw, 1rem);
     font-weight: bold;
-    border: 1px solid #da251c;
+    border: 1px solid ${(props) => (props.isSelected ? "var(--lineColor)" : "var(--titleColor)")};
     transform: ${(props) => (props.isSelected ? "scale(1.1)" : "scale(1)")};
     cursor: pointer;
 
     &:hover {
-        background-color: #da251c;
+        background-color: var(--lineColor);
         color: white;
     }
 

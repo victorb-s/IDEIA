@@ -154,7 +154,7 @@ const TrendingTopics = ({ id, handleSelectTopic }) => {
               <TableCell>
                 <FontAwesomeIcon
                   icon={faEdit}
-                  style={{ cursor: "pointer", color: "#034C8C" }}
+                  style={{ cursor: "pointer", color: "var(--buttonTextColor)" }}
                   onClick={() => handleSelectTopic(topic.title)}
                 />
               </TableCell>

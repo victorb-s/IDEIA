@@ -21,7 +21,7 @@ export const HeaderContainer = styled(motion.header)`
 
     padding: 0 5vw;
     position: relative;
-    background: #fff;
+    background: var(--backgroundColor);
     z-index: 99;
 
     &::after{
@@ -31,11 +31,11 @@ export const HeaderContainer = styled(motion.header)`
         bottom: 0;
         width: 90%;
         height: 1px;
-        background: #DA251C;
+        background: var(--headerLineColor);
     }
     
     .hambNav{
-        color: #DA251C;
+        color: var(--lineColor);
         z-index: 1000;
         font-size: clamp(1.5rem, 2.5vw, 1.7rem);
     }
@@ -59,7 +59,7 @@ export const HeaderContainerB = styled(motion.header)`
 
     padding: 0 5vw;
     position: relative;
-    background: #fff;
+    background: var(--backgroundColor);
     z-index: 99;
 `
 
@@ -114,10 +114,12 @@ export const TituloContainer = styled.div`
 
     font-size: clamp(0.7rem, 2vw, 1rem);
     color: #838383;
+    //finalizar darktheme aqui!!!!
 `
 
 export const IconContainer = styled.div`
     color: #034C8C;
+    //finalizar darktheme aqui!!!!
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     cursor: pointer;
 `
@@ -132,7 +134,8 @@ const ResponsiveNavCont = css`
         text-align: center;
         z-index: 999;
 
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: var(--backgroundColor);
+        opacity: 0.8;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
 
@@ -155,14 +158,14 @@ export const NavContainer = styled.ul`
 
 export const NavLink = styled(Link)`
     text-decoration: none;
-    color: #636363;
+    color: var(--navLinkColor);
     font-size: 15px;
     
     display: inline-block;
     transition: 0.2s ease-in-out;
 
     &:hover{
-        color: #030303;
+        color: var(--textColor);
         transform: scale(1.05);
     }
 `
