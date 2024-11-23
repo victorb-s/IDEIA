@@ -1,6 +1,4 @@
 import styled, { css } from "styled-components";
-import JCrainbow from "../../../assets/JC rainbow.svg";
-import ArrowUp from "../../../assets/arrow-up.svg";
 import { motion } from 'motion/react';
 
 const ResponsiveContainer = css`
@@ -22,7 +20,7 @@ export const GeneralContainer = styled(motion.div)`
     padding-top: 10vh;
     padding-bottom: 138px;
 
-    background-image: url(${JCrainbow});
+    background-image: url('/JCRainbowAlt.svg');
     background-repeat: no-repeat;
     background-position-y: 10%;
 

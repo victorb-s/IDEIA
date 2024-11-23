@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import JCRainbow from "../../../assets/infoPageRainbow.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Container = styled.div`
@@ -10,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${JCRainbow});
+  background: url('/infoPageRainbow.svg');
   background-size: cover;
 `;
 
