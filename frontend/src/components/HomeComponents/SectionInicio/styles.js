@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { motion } from 'motion/react';
 
-import RainbowSide from '../../../assets/JCRainbow.svg';
-
 const ResponsiveContainer = css`
     @media (max-width: 1024px) {
         background: none;
@@ -25,7 +23,7 @@ export const Container = styled(motion.div)`
 
     display: flex;
 
-    background: url(${RainbowSide}), var(--backgroundColor2);
+    background: url('/JCRainbow.svg'), var(--backgroundColor2);
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;

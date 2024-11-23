@@ -14,11 +14,13 @@ const App = () => {
 
   const handleSelectTopic = (topic) => {
     setTopic(topic);
+    localStorage.setItem('topic', topic);
     navigate('/sugestoes');
   }
 
   const handleSelectTitle = (title) => {
     setTitle(title);
+    localStorage.setItem('title', title);
     navigate('/redacao');
   }
 
@@ -47,8 +49,8 @@ const App = () => {
     >
     <GlobalStyle/>
     <AppRoutes
-      topic={topic}
-      titleHeader={title}
+      topic={localStorage.getItem('topic') || topic}
+      titleHeader={localStorage.getItem('title') || title}
       toggleTheme={toggleTheme}
       handleSelectTopic={handleSelectTopic}
       handleSelectTitle={handleSelectTitle}
