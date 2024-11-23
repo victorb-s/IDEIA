@@ -1,13 +1,13 @@
-import React from "react";
-import {NavContainer, Button} from "./styles";
+import { NavContainer, NavButton } from "./styles";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 function NavBotao() {
-    return (
-        <NavContainer>
-        <Button>&lt; </Button>
-        <Button> &gt;</Button>
-      </NavContainer>
-    );
-  }
+  return (
+    <NavContainer>
+      <NavButton icon={faChevronLeft} />
+      <NavButton icon={faChevronRight} />
+    </NavContainer>
+  );
+}
 
- export default NavBotao;
+export default NavBotao;

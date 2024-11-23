@@ -2,14 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 1%;
-  fl & .sem-projeto {
-    font-size: 1.5em;
-    color: #555;
-  }
+
+  margin-bottom: 50px;
+
+  background: var(--backgroundColor2);
+
   margin-bottom: 50px;
   @media (max-width: 768px) {
     gap: 4%;
@@ -32,7 +34,6 @@ export const Card = styled.div`
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
-    box-shadow: 0px 14px 100px rgba(0, 0, 0, 0.1);
   }
   margin: 10px 0;
   @media (max-width: 1024px) {
@@ -66,12 +67,12 @@ export const CardInfos = styled.div`
 
   h2 {
     font-size: clamp(0.7rem, 2vw, 0.9rem);
-    color: #da251c;
+    color: var(--lineColor);
     text-align: justify;
   }
 
   h1 {
     font-size: clamp(0.8rem, 2vw, 1rem);
-    color: #333;
+    color: var(--textColor);
   }
 `;

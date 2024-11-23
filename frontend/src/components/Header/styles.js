@@ -21,7 +21,7 @@ export const HeaderContainer = styled(motion.header)`
 
     padding: 0 5vw;
     position: relative;
-    background: #fff;
+    background: var(--backgroundColor);
     z-index: 99;
 
     &::after{
@@ -31,11 +31,11 @@ export const HeaderContainer = styled(motion.header)`
         bottom: 0;
         width: 90%;
         height: 1px;
-        background: #DA251C;
+        background: var(--headerLineColor);
     }
     
     .hambNav{
-        color: #DA251C;
+        color: var(--lineColor);
         z-index: 1000;
         font-size: clamp(1.5rem, 2.5vw, 1.7rem);
     }
@@ -59,7 +59,7 @@ export const HeaderContainerB = styled(motion.header)`
 
     padding: 0 5vw;
     position: relative;
-    background: #fff;
+    background: var(--backgroundColor);
     z-index: 99;
 `
 
@@ -105,7 +105,7 @@ export const ContainerLeft = styled.div`
 
 export const TituloContainer = styled.div`
     padding: 1vh 1vw;
-    border: 1px solid #03030330;
+    border: 1px solid var(--navLinkColor);
     border-radius: 5px;
     
     display: flex;
@@ -113,13 +113,18 @@ export const TituloContainer = styled.div`
     justify-content: center;
 
     font-size: clamp(0.7rem, 2vw, 1rem);
-    color: #838383;
+    color: var(--blueHeaderTitleContainer);
 `
 
 export const IconContainer = styled.div`
-    color: #034C8C;
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--blueHeaderIcons);
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    & svg{
+        cursor: pointer;
+    }
 `
 
 const ResponsiveNavCont = css`
@@ -130,9 +135,11 @@ const ResponsiveNavCont = css`
   
         flex-direction: column;
         text-align: center;
+        align-items: center;
         z-index: 999;
 
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: var(--backgroundColor);
+        opacity: 0.95;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
 
@@ -145,6 +152,7 @@ const ResponsiveNavCont = css`
 
 export const NavContainer = styled.ul`
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 2.5rem;
 
@@ -155,14 +163,14 @@ export const NavContainer = styled.ul`
 
 export const NavLink = styled(Link)`
     text-decoration: none;
-    color: #636363;
+    color: var(--navLinkColor);
     font-size: 15px;
     
     display: inline-block;
     transition: 0.2s ease-in-out;
 
     &:hover{
-        color: #030303;
+        color: var(--textColor);
         transform: scale(1.05);
     }
 `

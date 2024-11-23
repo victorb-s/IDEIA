@@ -10,10 +10,10 @@ import SectionHeading from "../../components/HomeComponents/SectionHeading";
 import SectionProjetos from "../../components/HomeComponents/SectionProjetos";
 
 // eslint-disable-next-line react/prop-types
-const Home = ({ handleSelectTopic }) => {
+const Home = ({ handleSelectTopic, toggleTheme }) => {
   return (
     <>
-      <HeaderRed />
+      <HeaderRed toggleTheme={toggleTheme}/>
       <SectionInicio id="inicio"/>
       <TrendingTopics id="trending" handleSelectTopic={handleSelectTopic}/>
       <HomeInfos id="infos"/>

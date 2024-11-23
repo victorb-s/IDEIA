@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   GeneralContainer,
   CategoryForms,
 } from "./styles";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleUp } from "@fortawesome/free-solid-svg-icons";
+
+import { useForm, Controller } from "react-hook-form";
 
 const ContainerVariants = {
   initial: {
@@ -43,11 +48,11 @@ const RightContVariants = {
 
 // eslint-disable-next-line react/prop-types
 export const HomeInfos = ({ id }) => {
-  const [categoria, setCategoria] = useState("");
+  const { control, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Formulário submetido com:", categoria);
+  const onSubmit = (data) => {
+    navigate("/informacoes", { state: { topicPassed: data.topic } });
   };
 
   return (
@@ -58,24 +63,32 @@ export const HomeInfos = ({ id }) => {
       animate="animate"
     >
       <CategoryForms
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         variants={RightContVariants}
         initial="initial"
         animate="animate"
       >
         <h1>Deseja buscar sobre algo específico? Com nossa IA, você pode!</h1>
-        <label htmlFor="categoria">
+        <label htmlFor="topic">
           Digite apenas algumas palavras-chave e aproveite dezenas de sugestões de títulos e conteúdos!
         </label>
+
         <div className="divInput">
-          <input
-            className="textInput"
-            type="text"
-            value={categoria}
-            placeholder="Insira o nome do tópico..."
-            onChange={(e) => setCategoria(e.target.value)}
+          <Controller
+            name="topic"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (   
+                <input
+                  {...field}
+                  className="textInput"
+                  type="text"
+                  placeholder="Insira o nome do tópico..."
+                />
+            )}
           />
-          <input className="submitInput" type="submit" value="" />
+
+          <button className="submitInput" type="submit" value="">{<FontAwesomeIcon icon={faArrowAltCircleUp} />}</button>
         </div>
       </CategoryForms>
     </GeneralContainer>

@@ -16,6 +16,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@hookform/resolvers": "^3.9.1",
     "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.11.8",
@@ -27,7 +28,9 @@
     "react-loading": "^2.0.3",
     "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^6.27.0",
-    "styled-components": "^6.1.13"
+    "react-switch": "^7.0.0",
+    "styled-components": "^6.1.13",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

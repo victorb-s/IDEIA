@@ -66,12 +66,13 @@ export const CategoryForms = styled(motion.form)`
 
     h1 {
         font-size: clamp(1.6rem, 4vw, 4rem);
-        color: #da251c;
+        color: var(--titleColor);
     }
 
     label {
         font-size: clamp(0.8rem, 2vw, 1.1rem);
         font-weight: 300;
+        color: var(--textColor);
     }
 
     .textInput {
@@ -92,12 +93,18 @@ export const CategoryForms = styled(motion.form)`
 
     .submitInput {
         border: none;
-        background-image: url(${ArrowUp});
         width: 32px;
         height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: white;
+        background: transparent;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: #da251c;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover{
+            transform: scale(1.1);
+            color: #f1000e;
+        }
     }
 
     ${ResponsiveForms}

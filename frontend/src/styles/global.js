@@ -1,11 +1,53 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root{
-        --cor-01: #DA251C;
-        --cor-02: #034C8C;
-        --cor-03: #038C33;
-        --cor-04: #F4AD04;
+        --cor-01: ${(props) => props.theme.colors.cor1};
+        --cor-02: ${(props) => props.theme.colors.cor2};
+        --cor-03: ${(props) => props.theme.colors.cor3};
+        --cor-04: ${(props) => props.theme.colors.cor4};
+
+        --cor-01escuro: ${(props) => props.theme.colors.cor1escuro};
+        --cor-02escuro: ${(props) => props.theme.colors.cor2escuro};
+        --cor-03escuro: ${(props) => props.theme.colors.cor3escuro};
+
+        --backgroundColor: ${(props) => props.theme.colors.backgroundColor};
+        --backgroundColor2: ${(props) => props.theme.colors.backgroundColor2};
+        --backgroundColor3: ${(props) => props.theme.colors.backgroundColor3};
+
+        --titleColor: ${(props) => props.theme.colors.titleColor};
+        --textColor: ${(props) => props.theme.colors.textColor};
+
+        --buttonColor: ${(props) => props.theme.colors.buttonColor};
+        --buttonOutlineColor: ${(props) => props.theme.colors.buttonOutlineColor};
+        --buttonArrowCircleColor: ${(props) => props.theme.colors.buttonArrowCircleColor};
+        --buttonTextColor: ${(props) => props.theme.colors.buttonTextColor};
+
+        --formBackgroundColor: ${(props) => props.theme.colors.formBackgroundColor};
+        --formOutlineColor: ${(props) => props.theme.colors.formOutlineColor};
+
+        --trendingDivider: ${(props) => props.theme.colors.trendingDivider};    
+
+        --navLinkColor: ${(props) => props.theme.colors.navLinkColor};
+        --navLinkColorHover: ${(props) => props.theme.colors.navLinkColorHover};
+        
+        --blueHeaderIcons: ${(props) => props.theme.colors.blueHeaderIcons};
+        --blueSectionText: ${(props) => props.theme.colors.blueSectionText};
+        --blueSectionTextHover: ${(props) => props.theme.colors.blueSectionTextHover};
+        --blueHeaderTitleContainer: ${(props) => props.theme.colors.blueHeaderTitleContainer};
+
+        --lineColor: ${(props) => props.theme.colors.lineColor};
+        --headerLineColor: ${(props) => props.theme.colors.headerLineColor};
+        --blueSectionLineColor: ${(props) => props.theme.colors.blueSectionLineColor};
+
+        --footerColor: ${(props) => props.theme.colors.footerColor};
+        --footerIconsColor: ${(props) => props.theme.colors.footerIconsColor};
+        --footerSpanColor: ${(props) => props.theme.colors.footerSpanColor};
+
+        --toolbarButtonColor: ${(props) => props.theme.colors.toolbarButtonColor};
+        --toolbarDividerColor: ${(props) => props.theme.colors.toolbarDividerColor};
+
+        --togglerBackground: ${(props) => props.theme.colors.togglerBackground};
     }
 
     * {
@@ -23,6 +65,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body, html{
+        background-color: var(--backgroundColor2);
         overflow-x: hidden;
     }
 
@@ -35,7 +78,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     *::-webkit-scrollbar-thumb {
-        background-color: #da251c;
+        background-color: var(--titleColor);
         border-radius: 8px;
     }
-`
+`;

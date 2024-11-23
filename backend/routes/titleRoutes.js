@@ -80,7 +80,7 @@ router.get('/generate-summary', titleController.generateSummary);
 /**
  * @swagger
  * /api/v1/title/add-context:
- *   post:
+ *   get:
  *     tags: [Titles]
  *     summary: Adiciona contexto ao tópico
  *     description: Retorna um tópico mais detalhado com base no contexto adicional fornecido pelo usuário.
@@ -131,6 +131,6 @@ router.get('/generate-summary', titleController.generateSummary);
  *       500:
  *         description: Erro ao adicionar o contexto
  */
-router.post('/add-context', titleController.addContext);
+router.get('/add-context', titleController.addContext);
 
 module.exports = router;
