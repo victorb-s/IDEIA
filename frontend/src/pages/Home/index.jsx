@@ -8,9 +8,14 @@ import { HomeInfos } from "../../components/HomeComponents/HomeSecInfos";
 import { SectionContainer } from "./styles";
 import SectionHeading from "../../components/HomeComponents/SectionHeading";
 import SectionProjetos from "../../components/HomeComponents/SectionProjetos";
+import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 const Home = ({ handleSelectTopic, toggleTheme }) => {
+  useEffect(() => {
+    document.title = "Home - IDEIA";
+  }, []);
+
   return (
     <>
       <HeaderRed toggleTheme={toggleTheme}/>
