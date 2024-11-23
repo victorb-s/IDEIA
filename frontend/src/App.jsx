@@ -1,11 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import Home from './pages/Home'
-import Informacao from './pages/InfosConteudo'
-import Redacao from './pages/Redacao'
-import Sugestoes from './pages/SugesTitulo'
+import AppRoutes from './routes/Routes';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from "./styles/global";
 
@@ -50,12 +46,13 @@ const App = () => {
       theme={theme}
     >
     <GlobalStyle/>
-    <Routes>
-      <Route path='/' element={<Home toggleTheme={toggleTheme} handleSelectTopic={handleSelectTopic}/>}/>
-      <Route path='/informacoes' element={<Informacao toggleTheme={toggleTheme}/>}/>
-      <Route path='/sugestoes' element={<Sugestoes toggleTheme={toggleTheme} topic={topic} handleSelectTitle={handleSelectTitle}/>}/>
-      <Route path='/redacao' element={<Redacao toggleTheme={toggleTheme} titleHeader={title}/>}/>
-    </Routes>
+    <AppRoutes
+      topic={topic}
+      titleHeader={title}
+      toggleTheme={toggleTheme}
+      handleSelectTopic={handleSelectTopic}
+      handleSelectTitle={handleSelectTitle}
+    />
     </ThemeProvider>
   </>)
 }
