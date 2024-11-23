@@ -41,7 +41,7 @@ const router = express.Router();
  *       500:
  *         description: Erro ao gerar o título
  */
-router.get('/generate', titleController.generateTitle);
+router.get('/', titleController.generateTitle);
 
 
 /**
