@@ -3,13 +3,13 @@ import { HeaderRed } from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useLocation } from "react-router-dom";
 
-const Informacao = () => {
+// eslint-disable-next-line react/prop-types
+const Informacao = ({ toggleTheme }) => {
   const location = useLocation();
   const { topicPassed } = location.state || {};
-  console.log(location.state);
-
+  
   return (<>
-    <HeaderRed />
+    <HeaderRed toggleTheme={toggleTheme}/>
     <ContentEditor topicPassed={topicPassed}/>
     <Footer />
   </>)

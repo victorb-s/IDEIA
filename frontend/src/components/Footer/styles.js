@@ -5,7 +5,7 @@ export const FooterContainer = styled.footer`
     width: 100%;
     height: 20vh;
 
-    background: #333333;
+    background: var(--footerColor);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,13 +21,13 @@ export const TextContainer = styled.div`
     max-width: 50%;
 
     p{
-        color: #fff;
+        color: var(--footerIconsColor);
         text-align: center;
         font-size: clamp(0.7rem , 2vw, 1rem);
     }
 
     span{
-        color: #FF6962;
+        color: var(--footerSpanColor);
         font-weight: bold;
     }
 `
@@ -46,12 +46,12 @@ export const IconsContainer = styled.div`
 `
 
 export const Icons = styled(FontAwesomeIcon)`
-    color: #fff;
+    color: var(--footerIconsColor);
     font-size: clamp(1rem, 2vw, 1.4rem);
     transition: 0.2s ease-in-out;
 
     &:hover{
-        color: #FF6962;
+        color: var(--footerSpanColor);
         transform: scale(1.05);
     }
 `

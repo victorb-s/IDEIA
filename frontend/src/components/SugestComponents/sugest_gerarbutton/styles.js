@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: #034C8C;
+  background-color: var(--blueHeaderIcons);
   color: white;
   font-size: clamp(0.5rem, 2vw, 0.8rem);
   font-family: 'Roboto' , sans-serif;
@@ -12,6 +12,6 @@ export const Button = styled.button`
   margin: 20px auto;
 
   &:hover {
-    background-color: #1a5bb8;
+    background-color: var(--blueSectionTextHover);
   }
 `;

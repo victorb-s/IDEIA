@@ -12,12 +12,12 @@ const Container = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-const Sugestoes = ({ topic, handleSelectTitle }) => {
+const Sugestoes = ({ topic, handleSelectTitle, toggleTheme}) => {
   const location = useLocation();
   const { formData } = location.state || {};
-
+  
   return (<>
-    <HeaderBlue />
+    <HeaderBlue toggleTheme={toggleTheme}/>
     <Container>
       <SugestaoLista topic={topic} handleSelectTitle={handleSelectTitle} formData={formData}/>
     </Container>

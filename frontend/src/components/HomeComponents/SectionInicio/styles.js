@@ -8,6 +8,7 @@ import RainbowSide from '../../../assets/JCRainbow.svg';
 const ResponsiveContainer = css`
     @media (max-width: 1024px) {
         background: none;
+        background-color: var(--backgroundColor2);
         height: 70vh;
     }
 
@@ -24,7 +25,7 @@ export const Container = styled(motion.div)`
 
     display: flex;
 
-    background: url(${RainbowSide});
+    background: url(${RainbowSide}), var(--backgroundColor2);
     background-repeat: no-repeat;
     background-position: right;
     background-size: contain;
@@ -67,11 +68,12 @@ export const TextContainer = styled.div`
     align-items: center;
 
     h1{
-        color: #DA251C;
+        color: var(--titleColor);
         font-size: clamp(1.6rem, 4vw, 4rem);
     }
 
     p{
+        color: var(--textColor);
         padding-top: 3vh;
         font-size: clamp(0.8rem, 2vw, 1.1rem);
         text-align: justify;
@@ -104,7 +106,9 @@ export const ButtonContainer = styled(Link)`
     height: 5vh;
     margin-top: 3vh;
 
-    border: 1px solid #034C8C70;
+    background-color: var(--buttonColor);
+
+    border: 1px solid var(--buttonOutlineColor);
     border-radius: 25px;
 
     text-decoration: none;
@@ -113,7 +117,7 @@ export const ButtonContainer = styled(Link)`
     ${ResponsiveBtnContainer}
 
     p{
-        color: #034C8C;
+        color: var(--buttonTextColor);
         font-size: clamp(0.7rem, 2vw, 1rem);
         padding-left: 1vw;
     }
@@ -132,7 +136,7 @@ const ResponsiveAC = css`
 `
 
 export const ArrowCircle = styled.div`
-    background: #034C8C20;
+    background: var(--buttonArrowCircleColor);
     border-radius: 50%;
 
     display: flex;
@@ -146,7 +150,7 @@ export const ArrowCircle = styled.div`
 `
 
 export const IconArrow = styled(FontAwesomeIcon)`
-    color: #034C8C;
+    color: var(--buttonTextColor);
     font-weight: bold;
     font-size: clamp(0.8rem, 2vw, 1.2rem);
 `

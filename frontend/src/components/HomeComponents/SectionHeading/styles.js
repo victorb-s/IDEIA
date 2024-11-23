@@ -10,7 +10,7 @@ export const HeadingContainer = styled.div`
 export const Heading = styled.h1`
   margin-right: 17px;
 
-  color: #da251c;
+  color: var(--titleColor);
   font-size: clamp(1.5rem, 5vw, 3.5rem);
   font-weight: 300;
 
@@ -22,5 +22,5 @@ export const Line = styled.span`
 
   height: 1px;
   position: relative;
-  background-color: #da251c;
+  background-color: var(--lineColor);
 `;

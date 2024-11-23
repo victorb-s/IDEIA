@@ -7,7 +7,7 @@ import { ListaContainer, LoadingContainer, TituloLista } from "./styles";
 
 import { api } from '../../../services/app';
 
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 // eslint-disable-next-line react/prop-types
@@ -71,8 +71,11 @@ function SugestaoLista({ topic, handleSelectTitle, formData }) {
       {loading ? (
         <LoadingContainer>
           {Array.from({ length: 5 }).map((_, index) => (
+            
             <div key={index} style={{ margin: "10px 0" }}>
+              <SkeletonTheme baseColor="rgba(0, 0, 0, 0.1)" highlightColor="rgba(0, 0, 0, 0.3)">
               <Skeleton height={30} width="60%" />
+            </SkeletonTheme>
             </div>
           ))}
         </LoadingContainer>
