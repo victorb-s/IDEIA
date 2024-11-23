@@ -151,6 +151,7 @@ export const Button = styled.button`
 
   width: 33%;
   height: 50px;
+  padding-left: 1vw;
 
   background-color: var(--buttonColor);
   color: var(--buttonTextColor);

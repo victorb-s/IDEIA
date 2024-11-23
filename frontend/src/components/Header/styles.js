@@ -122,7 +122,9 @@ export const IconContainer = styled.div`
     gap: 1rem;
     color: var(--blueHeaderIcons);
     font-size: clamp(0.7rem, 2vw, 1rem);
-    cursor: pointer;
+    & svg{
+        cursor: pointer;
+    }
 `
 
 const ResponsiveNavCont = css`
@@ -137,7 +139,7 @@ const ResponsiveNavCont = css`
         z-index: 999;
 
         background-color: var(--backgroundColor);
-        opacity: 0.8;
+        opacity: 0.95;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
 

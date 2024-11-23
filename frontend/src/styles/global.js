@@ -44,8 +44,8 @@ export const GlobalStyle = createGlobalStyle`
         --footerIconsColor: ${(props) => props.theme.colors.footerIconsColor};
         --footerSpanColor: ${(props) => props.theme.colors.footerSpanColor};
 
-        --toolbarColor: ${(props) => props.theme.colors.toolbarColor};
-        --toolbarColorHover: ${(props) => props.theme.colors.toolbarColorHover};
+        --toolbarButtonColor: ${(props) => props.theme.colors.toolbarButtonColor};
+        --toolbarDividerColor: ${(props) => props.theme.colors.toolbarDividerColor};
 
         --togglerBackground: ${(props) => props.theme.colors.togglerBackground};
     }
