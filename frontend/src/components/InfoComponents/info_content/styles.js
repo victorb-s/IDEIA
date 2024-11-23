@@ -51,6 +51,7 @@ export const Card = styled.form`
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   gap: 24px;
+
   & #title {
     font-size: 24px;
     height: 66px;
@@ -59,6 +60,7 @@ export const Card = styled.form`
       height: 50px;
     }
   }
+
 
   @media (max-width: 1024px) {
     width: 80%;
@@ -70,22 +72,29 @@ export const InputWrapper = styled.div`
   align-items: center;
   border-radius: 5px;
   gap: 16px;
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
 `;
 
 export const Input = styled.input`
+  height: 50px;
+  border-radius: 5px;
+  padding: 0 16px;
+
   display: flex;
   flex-grow: 1;
+
   border: none;
   background: var(--formBackgroundColor);
-  font-size: 18px;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   border-radius: 5px;
   transition: background-color 0.3s ease;
   height: 50px;
   padding: 0 16px;
   outline: 1px solid var(--formOutlineColor);
+
 
   &::placeholder {
     color: var(--buttonTextColor);
@@ -99,8 +108,8 @@ export const Input = styled.input`
   &:focus {
     outline: none;
   }
+
   @media (max-width: 1024px) {
-    font-size: 1rem;
     width: 100%;
     flex-direction: column;
     height: 45px;
@@ -116,21 +125,21 @@ export const TextArea = styled.textarea`
   border: none;
   border-radius: 5px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   resize: none;
   outline: 1px solid var(--formOutlineColor);
+  
   &::placeholder {
     color: var(--buttonTextColor);
     opacity: 0.6;
   }
+
   &:placeholder-shown {
     outline: none;
   }
+
   &:focus {
     outline: none;
-  }
-  @media (max-width: 768px) {
-    font-size: 1rem;
   }
 `;
 
@@ -139,22 +148,27 @@ export const Button = styled.button`
   align-items: center;
   justify-content: space-between;
   align-self: flex-end;
+
   width: 33%;
   height: 50px;
+
   background-color: var(--buttonColor);
   color: var(--buttonTextColor);
-  font-size: 18px;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   border: 1px solid var(--buttonOutlineColor);
+
   border-radius: 30px;
+
   cursor: pointer;
-  padding-left: 22px;
+
   @media (max-width: 1024px) {
     width: 40%;
   }
+
   @media (max-width: 768px) {
-    font-size: 1rem;
     width: 100%;
   }
+
   @media (max-width: 425px) {
     padding-left: 10px;
     height: 38px;
@@ -171,8 +185,10 @@ export const ArrowCircle = styled.div`
 
   aspect-ratio: 1 / 1;
   width: 48px;
+
   @media (max-width: 768px) {
   }
+
   @media (max-width: 425px) {
     width: 36px;
   }

@@ -30,21 +30,22 @@ const generateSummary = async (req, res) => {
 
 const addContext = async (req, res) => {
   try {
-    const { topic } = req.query;
-    const { category, additionalInfo, audience, tone } = req.body;
+    const { topic, category, audience, tone, additionalInfo } = req.query;
+    console.log('Query recebida:', req.query);
 
     if (!topic) {
       return res.status(400).json({ error: 'Parâmetro "topic" é obrigatório' });
     }
 
-    const context = {
+    const formData = {
+      topic,
       category,
       audience,
       tone,
       additionalInfo,
     };
 
-    const detailedTopic = await titleService.addContextToTopic(topic, context);
+    const detailedTopic = await titleService.addContextToTopic(topic, formData);
     res.status(200).json({ detailedTopic });
   } catch (error) {
     console.error('Erro ao adicionar contexto ao tópico:', error);
