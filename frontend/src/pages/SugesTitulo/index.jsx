@@ -1,8 +1,11 @@
 import SugestaoLista from "../../components/SugestComponents/sugest_lista";
 import { HeaderBlue } from "../../components/Header";
 import Footer from "../../components/Footer";
+
 import styled from "styled-components";
+
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const Container = styled.div`
   text-align: center;
@@ -16,6 +19,10 @@ const Sugestoes = ({ topic, handleSelectTitle, toggleTheme}) => {
   const location = useLocation();
   const { formData } = location.state || {};
   
+  useEffect(() => {
+    document.title = "Sugestões - IDEIA";
+  }, []);
+
   return (<>
     <HeaderBlue toggleTheme={toggleTheme}/>
     <Container>
