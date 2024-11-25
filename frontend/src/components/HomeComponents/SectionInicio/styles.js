@@ -89,7 +89,7 @@ const ResponsiveBtnContainer = css`
     }
 
     @media (max-width: 480px) {
-        width: 35vw;
+        width: 40vw;
         height: 4vh;
     }
 `

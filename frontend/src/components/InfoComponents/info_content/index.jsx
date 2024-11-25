@@ -10,20 +10,14 @@ import {
   IconArrow,
   Input,
   InputWrapper,
-  NavButton,
-  NavContainer,
   TextArea,
 } from "./styles";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
-
 // eslint-disable-next-line react/prop-types
 const ContentEditor = ({ topicPassed }) => {
   const navigate = useNavigate()
+  // eslint-disable-next-line no-unused-vars
   const [contentTheme, setContentTheme] = useState(topicPassed);
   const { control, handleSubmit } = useForm();
 
@@ -34,10 +28,6 @@ const ContentEditor = ({ topicPassed }) => {
 
   return (
     <Container>
-      <NavContainer>
-        <NavButton icon={faChevronLeft} />
-        <NavButton icon={faChevronRight} />
-      </NavContainer>
       <Card onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="topic"
