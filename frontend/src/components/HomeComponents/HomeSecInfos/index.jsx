@@ -82,6 +82,7 @@ export const HomeInfos = ({ id }) => {
                 <input
                   {...field}
                   className="textInput"
+                  required
                   type="text"
                   placeholder="Insira o nome do tópico..."
                 />
