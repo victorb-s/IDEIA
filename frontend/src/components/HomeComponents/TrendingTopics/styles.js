@@ -117,7 +117,7 @@ export const TableCell = styled.td`
     max-width: 150px;
     word-wrap: break-word;
     white-space: normal;
-    font-size: clamp(0.6rem, 2vw, 1.2rem);
+    font-size: clamp(0.7rem, 2vw, 1.2rem);
 
     @media (max-width: 768px) {
         padding: 8px;

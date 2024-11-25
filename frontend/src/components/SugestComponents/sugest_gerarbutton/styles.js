@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Button = styled.button`
   background-color: var(--blueHeaderIcons);
   color: white;
-  font-size: clamp(0.5rem, 2vw, 0.8rem);
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
   font-family: 'Roboto' , sans-serif;
   padding: 8px 15px;
   border: none;
