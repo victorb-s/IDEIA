@@ -78,7 +78,7 @@ const SectionInicio = ({ id }) => {
           <motion.h1
             variants={TitleVariants}
           >
-            Tem algo em mente? Deixe a nossa <i>IA</i> te ajudar!
+            Tem algo em mente? Deixe a IDEIA te ajudar!
           </motion.h1>
           <motion.p
             variants={SubTitleVariants}
