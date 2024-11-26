@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import JCRainbow from "../../../assets/infoPageRainbow.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Container = styled.div`
@@ -10,35 +9,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(${JCRainbow});
+  background: url('/infoPageRainbow.svg');
   background-size: cover;
-`;
-
-export const NavContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  position: relative;
-  width: 93%;
-  top: -20px;
-  @media (max-width: 1024px) {
-    top: -20px;
-  }
-`;
-
-export const NavButton = styled(FontAwesomeIcon)`
-  background: var(--backgroundColor);
-  border-radius: 100%;
-  border: none;
-  color: var(--titleColor);
-  font-size: 18px;
-  cursor: pointer;
-  padding: 10px;
-  aspect-ratio: 1/1;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-  @media (max-width: 1024px) {
-    font-size: 12px;
-  }
 `;
 
 export const Card = styled.form`

@@ -32,7 +32,7 @@ export const Icon = styled(FontAwesomeIcon)`
 `;
 
 export const ItemText = styled.p`
-  font-size: clamp(0.6rem, 2vw, 1.1rem);
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
   color: var(--textColor);
   font-weight: bold;
   margin: 0;

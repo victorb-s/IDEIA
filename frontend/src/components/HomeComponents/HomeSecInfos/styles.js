@@ -1,6 +1,4 @@
 import styled, { css } from "styled-components";
-import JCrainbow from "../../../assets/JCRainbow.svg";
-import ArrowUp from "../../../assets/arrow-up.svg";
 import { motion } from 'motion/react';
 
 const ResponsiveContainer = css`
@@ -22,7 +20,7 @@ export const GeneralContainer = styled(motion.div)`
     padding-top: 10vh;
     padding-bottom: 138px;
 
-    background-image: url(${JCrainbow});
+    background-image: url('/JCRainbowAlt.svg');
     background-repeat: no-repeat;
     background-position-y: 10%;
 
@@ -79,6 +77,12 @@ export const CategoryForms = styled(motion.form)`
         width: 15vw;
         padding: 8px 12px;
         border: 0;
+        background-color: var(--backgroundColor2);
+        color: var(--textColor);
+        &::placeholder {
+            color: var(--textColor);
+            opacity: 0.6;
+        }
 
         font-size: clamp(0.7rem, 2vw, 1rem);
     }
@@ -97,13 +101,12 @@ export const CategoryForms = styled(motion.form)`
         height: 100%;
         background: transparent;
         font-size: clamp(1rem, 2vw, 1.2rem);
-        color: #da251c;
+        color: var(--lineColor);
         cursor: pointer;
         transition: 0.3s ease;
 
         &:hover{
             transform: scale(1.1);
-            color: #f1000e;
         }
     }
 

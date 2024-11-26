@@ -68,7 +68,7 @@ export const HomeInfos = ({ id }) => {
         initial="initial"
         animate="animate"
       >
-        <h1>Deseja buscar sobre algo específico? Com nossa IA, você pode!</h1>
+        <h1>Deseja buscar sobre algo específico? Com a IDEIA, você pode!</h1>
         <label htmlFor="topic">
           Digite apenas algumas palavras-chave e aproveite dezenas de sugestões de títulos e conteúdos!
         </label>
@@ -82,6 +82,7 @@ export const HomeInfos = ({ id }) => {
                 <input
                   {...field}
                   className="textInput"
+                  required
                   type="text"
                   placeholder="Insira o nome do tópico..."
                 />

@@ -23,6 +23,7 @@ const Redacao = ({ titleHeader, toggleTheme}) => {
   };
   
   useEffect(() => {
+    document.title = "Redação - IDEIA";
       fetchData();
   }, []);
   

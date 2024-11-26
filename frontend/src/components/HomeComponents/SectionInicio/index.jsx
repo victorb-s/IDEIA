@@ -2,8 +2,6 @@ import { Container, Column, TextContainer, ButtonContainer, ArrowCircle, IconArr
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'motion/react';
 
-// import RainbowSide from '../../../assets/JCRainbow.svg';
-
 const ContainerVariants = {
   initial: {
     opacity: 0,
@@ -80,7 +78,7 @@ const SectionInicio = ({ id }) => {
           <motion.h1
             variants={TitleVariants}
           >
-            Tem algo em mente? Deixe a nossa <i>IA</i> te ajudar!
+            Tem algo em mente? Deixe a IDEIA te ajudar!
           </motion.h1>
           <motion.p
             variants={SubTitleVariants}
