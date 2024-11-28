@@ -52,6 +52,7 @@ export const HomeInfos = ({ id }) => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    localStorage.setItem('topic', data.topic);
     navigate("/informacoes", { state: { topicPassed: data.topic } });
   };
 
