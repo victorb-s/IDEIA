@@ -1,13 +1,16 @@
 const express = require('express');
 const cors = require('cors');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsDoc = require('swagger-jsdoc');
 const trendsRoutes = require('./routes/trendsRoutes');
 const titleRoutes = require('./routes/titleRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
 const { fetchGoogleTrends } = require('./services/trendsService');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.3.0/swagger-ui.css";
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -18,6 +21,7 @@ app.use(cors({
     }
   },
 }));
+
 
 app.use(express.json());
 
@@ -31,16 +35,16 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.VITE_API_URL || `http://localhost:${PORT}`,
+        url: process.env.BASE_URL || `http://localhost:${PORT}`,
       },
     ],
   },
-  apis: ['./routes/*.js'],
+  apis: [path.join(__dirname, '/routes/*.js')],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 
-app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs,  { customCssUrl: CSS_URL }));
 app.use('/api/v1/trends', trendsRoutes);
 app.use('/api/v1/title', titleRoutes);
 

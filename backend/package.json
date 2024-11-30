@@ -21,6 +21,6 @@
     "pg": "^8.13.1",
     "sequelize": "^6.37.5",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^4.6.2"
   }
 }
