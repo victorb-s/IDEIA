@@ -22,7 +22,7 @@ const ContentEditor = ({ topicPassed }) => {
   const { control, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    localStorage.setItem('topic', topicPassed);
     navigate("/sugestoes", { state: { formData: data }})
   }
 
