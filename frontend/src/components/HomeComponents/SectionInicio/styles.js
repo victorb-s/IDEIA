@@ -81,33 +81,32 @@ export const TextContainer = styled.div`
 
 const ResponsiveBtnContainer = css`
     @media (max-width: 1024px) {
-        width: 20vw;
-    }
-
-    @media (max-width: 768px) {
         width: 25vw;
     }
 
+    @media (max-width: 768px) {
+        width: 30vw;
+    }
+
     @media (max-width: 480px) {
-        width: 40vw;
+        width: 50vw;
         height: 4vh;
     }
 `
 
 export const ButtonContainer = styled(Link)`
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     
-    width: 15vw;
-    height: 5vh;
+    width: 20vw;
+    height: 50px;
     margin-top: 3vh;
 
     background-color: var(--buttonColor);
 
     border: 1px solid var(--buttonOutlineColor);
-    border-radius: 25px;
+    border-radius: 30px;
 
     text-decoration: none;
     transition: 0.2s ease-in-out;
@@ -118,19 +117,19 @@ export const ButtonContainer = styled(Link)`
         color: var(--buttonTextColor);
         font-size: clamp(0.7rem, 2vw, 1rem);
         padding-left: 1vw;
+
+        @media (max-width: 1024px){
+            padding-left: 2vw;
+        }
+
+        @media (max-width: 480px){
+            padding-left: 4vw;
+        }
     }
 
     &:hover{
         transform: scale(1.02);
     }
-`
-
-const ResponsiveAC = css`
-    @media (max-width: 1024px) {
-        width: 20%;
-    }
-
-
 `
 
 export const ArrowCircle = styled.div`
@@ -141,10 +140,9 @@ export const ArrowCircle = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 16%;
-    height: 100%;
+    aspect-ratio: 1;
+    height: 99%;
 
-    ${ResponsiveAC}
 `
 
 export const IconArrow = styled(FontAwesomeIcon)`

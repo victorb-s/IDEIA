@@ -4,8 +4,8 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 // eslint-disable-next-line react/prop-types
 function Sugestaoitem({ text, handleSelectTitle }) {
   return (
-    <ItemContainer>
-        <Icon icon={faEdit} alt="Ícone" onClick={() => handleSelectTitle(text)}/> 
+    <ItemContainer onClick={() => handleSelectTitle(text)}>
+        <Icon icon={faEdit} alt="Ícone"/> 
       <ItemText>{text}</ItemText>
     </ItemContainer>
   );

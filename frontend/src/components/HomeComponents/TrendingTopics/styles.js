@@ -86,7 +86,7 @@ export const Topicos = styled.table`
 export const TableHeader = styled.th`
     padding: 10px;
     
-    min-width: 150px;
+    min-width: 125px;
 
     color: var(--lineColor);
     font-weight: bold;
