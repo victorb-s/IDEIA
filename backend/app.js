@@ -51,5 +51,5 @@ app.use('/api/v1/title', titleRoutes);
 app.listen(PORT, async () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   await fetchGoogleTrends();
-  setInterval(fetchGoogleTrends, 600000);
+  setInterval(await fetchGoogleTrends(), 200000);
 });
