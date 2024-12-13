@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import HeaderLogo from "../../assets/logoHeaderSjcc.svg";
 import HeaderBLogo from "../../assets/logoSolSjcc.svg";
-import DarkHeaderBLogo from "../../assets/DarkHeaderBLOGO.svg";
+import DarkHeaderBLogo from "../../assets/DarkHeaderBLogo.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faXmark } from "@fortawesome/free-solid-svg-icons";

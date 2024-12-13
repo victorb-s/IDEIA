@@ -1,16 +1,15 @@
+require('dotenv').config();
 const { Sequelize } = require("sequelize");
 const { Pool } = require("pg");
 
-const dbConfig = {
-  user: "root",
-  host: "localhost",
-  database: "postgres",
-  password: "root",
-  port: 5434,
-};
 
 const createDatabase = async (databaseName) => {
-  const pool = new Pool(dbConfig);
+  const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
   try {
     const result = await pool.query(
       `SELECT 1 FROM pg_database WHERE datname = $1`,
@@ -33,10 +32,11 @@ const databaseName = "db_sjcc";
 
 createDatabase(databaseName);
 
-const sequelize = new Sequelize(databaseName, "root", "root", {
-  host: "localhost",
-  port: 5434,
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: "postgres",
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 sequelize
