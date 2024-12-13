@@ -139,7 +139,7 @@ const ResponsiveNavCont = css`
         z-index: 999;
 
         background-color: var(--backgroundColor);
-        opacity: 0.8;
+        opacity: 0.97;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
 
