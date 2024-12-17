@@ -1,0 +1,26 @@
+{
+  "name": "api_sjcc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd ../frontend && npm install && npm run build",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "google-trends-api": "^4.9.2",
+    "mysql2": "^3.11.3",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2"
+  }
+}
