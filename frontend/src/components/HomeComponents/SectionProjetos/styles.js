@@ -50,12 +50,15 @@ export const Card = styled.div`
 
 export const CardImg = styled.div`
   div {
+    width: 100%;
     height: 180px;
     display: flex;
     padding: 15px;
     background-color: #f5f5f5;
     font-weight: 600;
     font-size: clamp(0.6rem, 2vw, 0.8rem);
+    background-image: url('${(props) => (props.img ? props.img : "")}');
+    background-size: cover;
   }
 `;
 

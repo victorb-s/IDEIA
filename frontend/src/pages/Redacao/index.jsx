@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { api } from '../../services/app';
 import { Container } from './styles.js';
 
-// eslint-disable-next-line no-unused-vars, react/prop-types
+// eslint-disable-next-line react/prop-types
 const Redacao = ({ titleHeader, toggleTheme}) => {
   const [content, setContent] = useState({});
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,6 @@ const Redacao = ({ titleHeader, toggleTheme}) => {
   const fetchData = async () => {
     try {
       const response = await api.get(`/v1/title/generate-summary?title=${titleHeader}`);
-      console.log(response.data);
       setContent(response.data);
     } catch (error) {
       console.error(error);
