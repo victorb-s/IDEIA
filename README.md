@@ -156,7 +156,7 @@ A documentação é gerada automaticamente, permitindo que você explore os endp
 <img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgDFHbeyks0hQtVo9SoJdT2FMLygXqmGzUg&s" width="100px;" alt="Logo CESAR School"/>
 
 Feito com ❤️ por: <br>
-Turma ADS-B 2024.2 CESAR School
+Turma ADS-B 2024.1 CESAR School
 
 👋🏽 Entre em contato!
 
