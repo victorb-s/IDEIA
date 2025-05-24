@@ -153,10 +153,10 @@ A documentação é gerada automaticamente, permitindo que você explore os endp
 ## 🌐 Autores
 ---
 
-<img style="border-radius: 50%" src="https://scontent.frec19-1.fna.fbcdn.net/v/t39.30808-6/313418844_488345756668213_7033748636606945166_n.png?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=GELWEZrup9MQ7kNvgEKNePd&_nc_zt=23&_nc_ht=scontent.frec19-1.fna&_nc_gid=A3Cm3HVv-u4CipC7dy3b0QI&oh=00_AYCGDrNyz5Xh7TSmH7jHxQN49tkrzUOvqdtFX6Kh-FdS8g&oe=673595A7" width="100px;" alt="Logo CESAR School"/>
+<img style="border-radius: 50%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgDFHbeyks0hQtVo9SoJdT2FMLygXqmGzUg&s" width="100px;" alt="Logo CESAR School"/>
 
 Feito com ❤️ por: <br>
-Turma ADS-B 2024.2 CESAR School
+Turma ADS-B 2024.1 CESAR School
 
 👋🏽 Entre em contato!
 

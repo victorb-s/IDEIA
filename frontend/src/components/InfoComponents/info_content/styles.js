@@ -159,9 +159,6 @@ export const ArrowCircle = styled.div`
   aspect-ratio: 1 / 1;
   width: 48px;
 
-  @media (max-width: 768px) {
-  }
-
   @media (max-width: 425px) {
     width: 36px;
   }

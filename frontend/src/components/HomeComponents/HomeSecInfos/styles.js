@@ -83,7 +83,7 @@ export const CategoryForms = styled(motion.form)`
             color: var(--textColor);
             opacity: 0.6;
         }
-
+        outline:none;
         font-size: clamp(0.7rem, 2vw, 1rem);
     }
 

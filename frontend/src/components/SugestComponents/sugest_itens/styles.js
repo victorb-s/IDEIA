@@ -14,6 +14,10 @@ export const ItemContainer = styled.div`
   padding-right: 40px;
   padding: 10px 20px;
   margin: 8px 0;
+  
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+  
+  cursor: pointer;
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
@@ -22,7 +26,6 @@ export const Icon = styled(FontAwesomeIcon)`
   font-size: clamp(0.8rem, 2vw, 1.2rem);
 
   color: var(--blueSectionText);
-  cursor: pointer;
 
   transition: 0.1s ease-in-out;
 
@@ -32,9 +35,9 @@ export const Icon = styled(FontAwesomeIcon)`
 `;
 
 export const ItemText = styled.p`
-  font-size: clamp(0.75rem, 2vw, 1.1rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
   color: var(--textColor);
-  font-weight: bold;
+  font-weight: 600;
   margin: 0;
   flex: 1;
   text-align: left;

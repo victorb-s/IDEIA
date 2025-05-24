@@ -55,13 +55,11 @@ function SugestaoLista({ topic, handleSelectTitle, formData }) {
   }, []);
 
   const handleGenerateClick = () => {
-    console.log('Botão clicado');
     setSugestoes([]);
     setLoading(true);
     fetchTitles();
   } 
 
-  console.log(detailedTopic || topic);
 
   return (
     <ListaContainer>
